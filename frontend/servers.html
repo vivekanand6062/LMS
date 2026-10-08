@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server Monitoring & Telemetry — Distributed Library System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/static/style.css">
+<style>
+.servers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+.server-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r3);
+  padding: 24px;
+  transition: all .2s ease;
+}
+.server-card.sb { border-color: rgba(59,130,246,0.35); }
+.server-card.sp { border-color: rgba(168,85,247,0.35); }
+.sc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.sc-tl {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.sc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.sc-icon.blue { background: var(--blue-dim); border: 1px solid var(--blue-brd); }
+.sc-icon.purple { background: var(--purple-dim); border: 1px solid var(--purple-brd); }
+.sc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.6px;
+  font-family: var(--mono);
+}
+.sc-status.healthy { background: var(--green-dim); border: 1px solid var(--green-brd); color: var(--green-l); }
+.sc-status.offline { background: var(--red-dim); border: 1px solid var(--red-brd); color: var(--red); }
+.sc-status.recovered { background: var(--blue-dim); border: 1px solid var(--blue-brd); color: var(--blue-l); }
+.sc-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.sc-pulse.healthy { background: var(--green-l); animation: blink 2s ease-in-out infinite; }
+.sc-pulse.offline { background: var(--red); }
+.sc-pulse.recovered { background: var(--blue-l); animation: blink 1.5s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.sc-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 16px 0;
+}
+.metric { text-align: center; }
+.metric-val { font-size: 20px; font-weight: 700; color: var(--t1); font-family: var(--mono); }
+.metric-lbl { font-size: 10px; color: var(--t3); margin-top: 4px; text-transform: uppercase; font-family: var(--mono); }
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.meta-label { color: var(--t3); font-family: var(--mono); }
+.meta-val { color: var(--t1); font-family: var(--mono); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="tb-left">
+    <div class="tb-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round">
+        <rect x="2" y="3" width="20" height="5" rx="1"/>
+        <rect x="2" y="10" width="20" height="5" rx="1"/>
+        <rect x="2" y="17" width="20" height="5" rx="1"/>
+      </svg>
+    </div>
+    <div>
+      <div class="tb-title">Backend Server Nodes & Telemetry</div>
+      <div class="tb-sub">Real-Time Health Monitoring, Failure Tracking & Failover Status</div>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button class="btn btn-s" onclick="window.location.href='/dashboard'">
+      Dashboard
+    </button>
+    <button class="btn btn-p" onclick="loadServers()">
+      Refresh Telemetry
+    </button>
+  </div>
+</nav>
+
+<div class="page-container">
+
+  <div class="sec-hd">
+    <div>
+      <div class="sec-t">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        Live Server Health Registry
+      </div>
+      <div class="sec-sub">Gateway dynamically monitors backend response health every 3 seconds</div>
+    </div>
+    <button class="btn btn-s" onclick="resetSimulations()">Reset All Outages</button>
+  </div>
+
+  <!-- SERVERS GRID -->
+  <div class="servers-grid" id="serversContainer">
+    <div style="text-align:center; padding:50px; color:var(--t3);">Polling backend health endpoints...</div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toastEl">
+  <span class="tdot g" id="tDot"></span>
+  <span id="tMsg"></span>
+</div>
+
+<script>
+function toast(msg, type='g'){
+  document.getElementById('tMsg').textContent = msg;
+  document.getElementById('tDot').className = 'tdot ' + type;
+  const t = document.getElementById('toastEl');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function formatTs(ts){
+  if(!ts) return 'None';
+  try{
+    const d = new Date(ts);
+    return isNaN(d.getTime()) ? ts : d.toLocaleTimeString();
+  }catch(e){ return ts; }
+}
+
+async function loadServers() {
+  try {
+    const response = await fetch('/server_status');
+    const data = await response.json();
+    const container = document.getElementById('serversContainer');
+
+    if (!data.servers || Object.keys(data.servers).length === 0) {
+      container.innerHTML = '<div style="text-align:center; padding:50px; color:var(--t3);">No servers available</div>';
+      return;
+    }
+
+    const ports = Object.keys(data.servers).sort();
+    
+    container.innerHTML = ports.map(port => {
+      const s = data.servers[port];
+      const isHealthy = s.detailed_status === 'HEALTHY' || s.detailed_status === 'ACTIVE';
+      const isRecovered = s.detailed_status === 'RECOVERED';
+      const isOffline = s.detailed_status === 'OFFLINE' || s.status === 'down';
+      
+      const statusClass = isHealthy ? 'healthy' : (isRecovered ? 'recovered' : 'offline');
+      const statusLabel = isHealthy ? '● HEALTHY' : (isRecovered ? '● RECOVERED' : '● OFFLINE');
+      const cardColor = port === '5001' ? 'sb' : 'sp';
+      const iconColor = port === '5001' ? 'blue' : 'purple';
+      const serverKey = port === '5001' ? 'server_a' : 'server_b';
+
+      return `
+        <div class="server-card ${cardColor}">
+          <div class="sc-header">
+            <div class="sc-tl">
+              <div class="sc-icon ${iconColor}">🖥️</div>
+              <div>
+                <h3 style="font-size:18px; font-weight:700; color:var(--t1);">${s.name}</h3>
+                <div style="font-size:12px; color:var(--t3); font-family:var(--mono);">Port ${s.port} · localhost:${s.port}</div>
+              </div>
+            </div>
+            
+            <div class="sc-status ${statusClass}">
+              <span class="sc-pulse ${statusClass}"></span>
+              ${statusLabel}
+            </div>
+          </div>
+
+          <div class="sc-metrics">
+            <div class="metric">
+              <div class="metric-val">${s.latency_ms}ms</div>
+              <div class="metric-lbl">Latency</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">${s.active_requests}</div>
+              <div class="metric-lbl">Active Reqs</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">${s.requests}</div>
+              <div class="metric-lbl">Total Reqs</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val" style="color:var(--blue-l);">${s.routing_score}</div>
+              <div class="metric-lbl">Score</div>
+            </div>
+          </div>
+
+          <div style="margin:14px 0;">
+            <div class="meta-item">
+              <span class="meta-label">Partitioned Genres:</span>
+              <span class="meta-val">${(s.genres || []).join(', ')}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Last Health Check:</span>
+              <span class="meta-val">${formatTs(s.last_health_check)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Last Successful Response:</span>
+              <span class="meta-val">${formatTs(s.last_request)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Failure Detected:</span>
+              <span class="meta-val" style="color:${s.failure_detected_at ? 'var(--red)' : 'var(--t3)'};">
+                ${formatTs(s.failure_detected_at)}
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Recovery Timestamp:</span>
+              <span class="meta-val" style="color:${s.recovery_detected_at ? 'var(--green-l)' : 'var(--t3)'};">
+                ${formatTs(s.recovery_detected_at)}
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Total Failure Count:</span>
+              <span class="meta-val">${s.failure_count || 0} times</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:18px; border-top:1px solid var(--border); padding-top:16px;">
+            <button class="btn btn-s" style="flex:1; justify-content:center; font-size:12px;" onclick="simulateLoad('${serverKey}')">
+              ⚡ Spike Load
+            </button>
+            <button class="btn btn-s" style="flex:1; justify-content:center; font-size:12px; color:${isOffline ? 'var(--green-l)' : 'var(--red)'};" onclick="toggleFailover('${serverKey}')">
+              ${isOffline ? '🔄 Recover' : '⚠️ Failover'}
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (error) {
+    console.error('Failed to load servers:', error);
+  }
+}
+
+async function simulateLoad(server){
+  try{
+    const res = await fetch("/api/simulate_load", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ server })
+    });
+    const d = await res.json();
+    toast(d.message, "g");
+    loadServers();
+  }catch(e){ toast("Error", "r"); }
+}
+
+async function toggleFailover(server){
+  try{
+    const res = await fetch("/api/simulate_failover", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ server })
+    });
+    const d = await res.json();
+    toast(d.message, d.is_offline ? "r" : "g");
+    loadServers();
+  }catch(e){ toast("Error", "r"); }
+}
+
+async function resetSimulations(){
+  try{
+    const res = await fetch("/api/reset_simulation", { method: "POST" });
+    const d = await res.json();
+    toast(d.message, "g");
+    loadServers();
+  }catch(e){ toast("Error", "r"); }
+}
+
+loadServers();
+setInterval(loadServers, 3000);
+</script>
+
+</body>
+</html>

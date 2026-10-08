@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Distributed Library Management System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/static/style.css">
+<style>
+  .auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .auth-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: var(--r4);
+    width: 100%;
+    max-width: 440px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59, 130, 246, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+  }
+  .auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .auth-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r2);
+    background: var(--blue-dim);
+    border: 1px solid var(--blue-brd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue-l);
+  }
+  .auth-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--t1);
+    letter-spacing: -0.4px;
+  }
+  .auth-sub {
+    font-size: 12px;
+    color: var(--t3);
+    margin-top: 2px;
+  }
+  .auth-tabs {
+    display: flex;
+    background: var(--bg3);
+    border-radius: var(--r1);
+    padding: 4px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+  .auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--t2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .auth-tab.active {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  }
+  .input-grp {
+    margin-bottom: 16px;
+  }
+  .input-grp label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--t2);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+  }
+  .input-grp input, .input-grp select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    border-radius: var(--r1);
+    padding: 11px 14px;
+    color: var(--t1);
+    font-family: var(--sans);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-grp input:focus, .input-grp select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px var(--blue-dim);
+  }
+  .demo-box {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .demo-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--t3);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: var(--mono);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .demo-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .demo-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--r1);
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+    color: var(--t2);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .demo-btn:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--t1);
+    border-color: var(--blue-brd);
+  }
+  .alert-box {
+    padding: 10px 14px;
+    border-radius: var(--r1);
+    font-size: 12px;
+    margin-bottom: 16px;
+    display: none;
+    font-family: var(--mono);
+  }
+  .alert-box.err {
+    background: var(--red-dim);
+    border: 1px solid var(--red-brd);
+    color: var(--red);
+    display: block;
+  }
+  .alert-box.ok {
+    background: var(--green-dim);
+    border: 1px solid var(--green-brd);
+    color: var(--green-l);
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="auth-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="auth-title">Distributed Library</div>
+        <div class="auth-sub">Final-Year Distributed Systems Project</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</div>
+      <div class="auth-tab" id="tabRegister" onclick="switchTab('register')">Register Student</div>
+    </div>
+
+    <div id="alertBox" class="alert-box"></div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="input-grp">
+        <label>Username</label>
+        <input type="text" id="loginUsername" placeholder="e.g. student or admin" required autocomplete="username">
+      </div>
+      <div class="input-grp">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-p" style="width:100%; justify-content:center; padding:12px; margin-top:8px;">
+        Sign In to Portal
+      </button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="registerForm" style="display:none;" onsubmit="handleRegister(event)">
+      <div class="input-grp">
+        <label>Full Name</label>
+        <input type="text" id="regName" placeholder="e.g. Sarah Connor" required>
+      </div>
+      <div class="input-grp">
+        <label>Username</label>
+        <input type="text" id="regUsername" placeholder="e.g. sarah" required>
+      </div>
+      <div class="input-grp">
+        <label>Email</label>
+        <input type="email" id="regEmail" placeholder="sarah@college.edu" required>
+      </div>
+      <div class="input-grp">
+        <label>Password</label>
+        <input type="password" id="regPassword" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn btn-p" style="width:100%; justify-content:center; padding:12px; margin-top:8px;">
+        Create Student Account
+      </button>
+    </form>
+
+    <!-- QUICK DEMO LOGINS -->
+    <div class="demo-box">
+      <div class="demo-label">Quick Demo Access</div>
+      <div class="demo-btns">
+        <div class="demo-btn" onclick="demoLogin('student', 'student123')">
+          👤 <strong>Student</strong><br><small style="color:var(--t3)">Alex Student</small>
+        </div>
+        <div class="demo-btn" onclick="demoLogin('admin', 'admin123')">
+          🛡️ <strong>Librarian</strong><br><small style="color:var(--t3)">Admin Access</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showAlert(msg, isErr=true){
+  const el = document.getElementById("alertBox");
+  el.textContent = msg;
+  el.className = "alert-box " + (isErr ? "err" : "ok");
+}
+
+function switchTab(mode){
+  const isLogin = mode === 'login';
+  document.getElementById("tabLogin").className = "auth-tab " + (isLogin ? "active" : "");
+  document.getElementById("tabRegister").className = "auth-tab " + (!isLogin ? "active" : "");
+  document.getElementById("loginForm").style.display = isLogin ? "block" : "none";
+  document.getElementById("registerForm").style.display = isLogin ? "none" : "block";
+  document.getElementById("alertBox").style.display = "none";
+}
+
+async function handleLogin(e){
+  e.preventDefault();
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+
+  try{
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+    if(res.ok && data.token){
+      localStorage.setItem("lms_token", data.token);
+      localStorage.setItem("lms_user", JSON.stringify(data.user));
+      showAlert("Login successful! Redirecting...", false);
+      setTimeout(() => window.location.href = "/dashboard", 500);
+    } else {
+      showAlert(data.error || "Login failed");
+    }
+  }catch(err){
+    showAlert("Network error connecting to Gateway");
+  }
+}
+
+async function handleRegister(e){
+  e.preventDefault();
+  const name = document.getElementById("regName").value.trim();
+  const username = document.getElementById("regUsername").value.trim();
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword").value.trim();
+
+  try{
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, username, email, password, role: "student" })
+    });
+    const data = await res.json();
+    if(res.ok && data.token){
+      localStorage.setItem("lms_token", data.token);
+      localStorage.setItem("lms_user", JSON.stringify(data.user));
+      showAlert("Registration complete! Redirecting...", false);
+      setTimeout(() => window.location.href = "/dashboard", 500);
+    } else {
+      showAlert(data.error || "Registration failed");
+    }
+  }catch(err){
+    showAlert("Network error connecting to Gateway");
+  }
+}
+
+function demoLogin(user, pass){
+  document.getElementById("loginUsername").value = user;
+  document.getElementById("loginPassword").value = pass;
+  switchTab('login');
+  document.getElementById("loginForm").dispatchEvent(new Event("submit"));
+}
+</script>
+
+</body>
+</html>

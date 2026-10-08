@@ -1,0 +1,98 @@
+[
+  {
+    "id": "bk-a-01",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "genre": "Fantasy",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 14
+  },
+  {
+    "id": "bk-a-02",
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "author": "J.K. Rowling",
+    "genre": "Fantasy",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 25
+  },
+  {
+    "id": "bk-a-03",
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "genre": "Fantasy",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 19
+  },
+  {
+    "id": "bk-a-04",
+    "title": "Treasure Island",
+    "author": "Robert Louis Stevenson",
+    "genre": "Adventure",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 8
+  },
+  {
+    "id": "bk-a-05",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "genre": "Fiction",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 14
+  },
+  {
+    "id": "bk-a-5f664a0f",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Fiction",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-a-95aaea21",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Fiction",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-a-8e82fd29",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Fiction",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  }
+]

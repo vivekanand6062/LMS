@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Logs & Routing Audit — Distributed Library System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="tb-left">
+    <div class="tb-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="20" x2="18" y2="10"/>
+        <line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+    </div>
+    <div>
+      <div class="tb-title">Distributed System Audit Logs</div>
+      <div class="tb-sub">Gateway Routing Decisions, Dynamic Scores & Failover Records</div>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button class="btn btn-s" onclick="window.location.href='/dashboard'">
+      Dashboard
+    </button>
+    <button class="btn btn-p" onclick="loadLogs()">
+      Refresh Logs
+    </button>
+  </div>
+</nav>
+
+<div class="page-container">
+
+  <!-- HEADER -->
+  <div class="sec-hd">
+    <div>
+      <div class="sec-t">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Audit Trail & Telemetry
+      </div>
+      <div class="sec-sub">Chronological trace of all requests routed through the distributed gateway</div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <input type="text" id="logFilter" class="search-inp" placeholder="Filter by action, server, or request ID..." oninput="filterLogs()">
+    <select id="statusFilter" class="filter-sel" onchange="filterLogs()">
+      <option value="all">All Statuses</option>
+      <option value="success">Success</option>
+      <option value="error">Error / Failover</option>
+    </select>
+  </div>
+
+  <!-- LOGS TABLE -->
+  <div class="table-wrap">
+    <table class="data-tbl">
+      <thead>
+        <tr>
+          <th>Trace ID</th>
+          <th>Action</th>
+          <th>Routed Node</th>
+          <th>Routing Reason / Score</th>
+          <th>Duration</th>
+          <th>Status</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="logsContainer">
+        <tr><td colspan="7" style="text-align:center; padding:30px; color:var(--t3);">Loading audit logs...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+let allLogs = [];
+
+async function loadLogs() {
+  try {
+    const response = await fetch('/logs');
+    allLogs = await response.json();
+    renderLogs(allLogs);
+  } catch (error) {
+    document.getElementById('logsContainer').innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--red);">Failed to load logs</td></tr>';
+  }
+}
+
+function filterLogs(){
+  const q = document.getElementById('logFilter').value.toLowerCase().trim();
+  const st = document.getElementById('statusFilter').value;
+
+  const filtered = allLogs.filter(l => {
+    const mQuery = !q || (l.action && l.action.toLowerCase().includes(q)) || (l.server && l.server.toLowerCase().includes(q)) || (l.request_id && l.request_id.toLowerCase().includes(q));
+    const mStatus = st === 'all' || l.status === st;
+    return mQuery && mStatus;
+  });
+
+  renderLogs(filtered);
+}
+
+function renderLogs(logs){
+  const container = document.getElementById('logsContainer');
+
+  if (!logs.length) {
+    container.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:var(--t3);">No logs recorded yet.</td></tr>';
+    return;
+  }
+
+  container.innerHTML = logs.map(log => {
+    const isSuccess = log.status === 'success';
+    const serverName = log.server.replace('http://localhost:5001', 'Server A').replace('http://localhost:5002', 'Server B');
+    const scoreText = log.routing_score !== null && log.routing_score !== undefined ? `(Score: ${log.routing_score})` : '';
+    const reasonText = (log.reason || 'standard').replace(/_/g, ' ');
+
+    return `
+      <tr>
+        <td style="font-family:var(--mono); font-size:12px; color:var(--t3);">${(log.request_id || '').slice(0, 8)}</td>
+        <td><strong style="color:var(--t1);">${log.action}</strong></td>
+        <td><span style="font-family:var(--mono);">${serverName}</span></td>
+        <td>
+          <span style="font-size:12px; color:var(--t2);">${reasonText}</span>
+          <span style="font-family:var(--mono); font-size:11px; color:var(--blue-l);">${scoreText}</span>
+        </td>
+        <td style="font-family:var(--mono); font-size:12px;">${log.duration_ms ? log.duration_ms + 'ms' : '—'}</td>
+        <td>
+          <span class="badge ${isSuccess ? 'badge-available' : 'badge-overdue'}">
+            ${isSuccess ? '✓ SUCCESS' : '✗ ERROR'}
+          </span>
+        </td>
+        <td style="font-family:var(--mono); font-size:11px; color:var(--t3);">${new Date(log.timestamp).toLocaleTimeString()}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+loadLogs();
+setInterval(loadLogs, 4000);
+</script>
+
+</body>
+</html>

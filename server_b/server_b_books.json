@@ -1,0 +1,122 @@
+[
+  {
+    "id": "bk-b-01",
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "genre": "Science",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 18
+  },
+  {
+    "id": "bk-b-02",
+    "title": "Calculus: Early Transcendentals",
+    "author": "James Stewart",
+    "genre": "Math",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 10
+  },
+  {
+    "id": "bk-b-03",
+    "title": "Physics for Engineers",
+    "author": "Raymond A. Serway",
+    "genre": "Science",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 15
+  },
+  {
+    "id": "bk-b-04",
+    "title": "Data Structures & Algorithms in Python",
+    "author": "Michael T. Goodrich",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 22
+  },
+  {
+    "id": "bk-b-05",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 30
+  },
+  {
+    "id": "bk-b-5484b3a0",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-b-95871f58",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-b-395f2f47",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Fiction",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-b-0d67237b",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  },
+  {
+    "id": "bk-b-56d7bc84",
+    "title": "Failover Book During Outage",
+    "author": "Anonymous",
+    "genre": "Fantasy",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0
+  }
+]

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distributed Library Management System — Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/static/style.css">
+<style>
+  /* Strict SVG protection */
+  svg { max-width: 100%; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+  .sec-t svg { width: 22px !important; height: 22px !important; max-width: 22px !important; max-height: 22px !important; }
+  .tb-icon svg { width: 20px !important; height: 20px !important; }
+  .sc-ico svg { width: 26px !important; height: 26px !important; }
+  .shw svg { width: 18px !important; height: 18px !important; }
+  .smv svg { width: 14px !important; height: 14px !important; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="tb-left">
+    <div class="tb-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+    </div>
+    <div>
+      <div class="tb-title">Distributed Library System</div>
+      <div class="tb-sub">Final-Year Upgrade · Dynamic Routing & Fault Tolerant</div>
+    </div>
+  </div>
+
+  <div class="tb-right">
+    <div id="userProfileBadge" style="display:flex; align-items:center; gap:10px; margin-right:12px;">
+      <span id="userRoleBadge" class="badge badge-role badge-student">Student</span>
+      <span id="userNameText" style="font-size:13px; font-weight:600; color:var(--t1);">Alex Student</span>
+    </div>
+
+    <div class="pill pill-ok" id="statusPill">
+      <span class="pulse" id="statusDot"></span>
+      <span id="statusText">All Systems Operational</span>
+    </div>
+
+    <button class="btn btn-s" onclick="refreshCurrentTab()" title="Refresh">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M1 4v6h6"/><path d="M23 20v-6h-6"/>
+        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+      </svg>
+      Refresh
+    </button>
+
+    <button class="btn btn-s" onclick="handleLogout()" style="color:var(--red);">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<div class="page-container">
+
+  <!-- NAVIGATION TABS -->
+  <div class="nav-tabs">
+    <button class="nav-tab active" id="tabBtn-dashboard" onclick="switchNav('dashboard')">
+      📊 Dashboard
+    </button>
+    <button class="nav-tab" id="tabBtn-books" onclick="switchNav('books')">
+      📚 Book Catalog
+    </button>
+    <button class="nav-tab" id="tabBtn-mybooks" onclick="switchNav('mybooks')">
+      📖 My Issued Books (<span id="myBooksCount">0</span>)
+    </button>
+    <button class="nav-tab" id="tabBtn-issues" onclick="switchNav('issues')">
+      🔄 Issue / Return
+    </button>
+    <button class="nav-tab" id="tabBtn-analytics" onclick="switchNav('analytics')">
+      📈 Real-Time Analytics
+    </button>
+    <button class="nav-tab" onclick="window.location.href='/servers'">
+      🖥 Server Monitor
+    </button>
+    <button class="nav-tab" onclick="window.location.href='/logs_page'">
+      📜 Request Logs
+    </button>
+  </div>
+
+  <!-- ==================== TAB 1: DASHBOARD ==================== -->
+  <div id="view-dashboard" class="tab-view">
+    <!-- SYSTEM STATS GRID -->
+    <div class="stats-grid">
+      <div class="sc">
+        <div class="sc-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sc-lbl">Active Servers</div>
+          <div class="sc-num" id="activeServers">—</div>
+          <div class="sc-meta" id="serverMeta">Healthy & Monitored</div>
+        </div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sc-lbl">Total Books Stored</div>
+          <div class="sc-num" id="totalBooks">—</div>
+          <div class="sc-meta">Distributed across nodes</div>
+        </div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sc-lbl">Currently Issued</div>
+          <div class="sc-num" id="issuedBooksStat">—</div>
+          <div class="sc-meta" id="availableBooksStat">— available</div>
+        </div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sc-lbl">Total Requests</div>
+          <div class="sc-num" id="totalRequests">—</div>
+          <div class="sc-meta">Load balanced requests</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVER HEALTH & METRICS WRAPPER -->
+    <div class="srv-wrap">
+      <div class="sec-hd" style="margin-bottom:0">
+        <div>
+          <div class="sec-t">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
+            </svg>
+            Dynamic Server Nodes & Routing Scores
+          </div>
+          <div class="sec-sub">Real-time health telemetry & dynamic routing weights</div>
+        </div>
+        <div class="srv-legend">
+          <span><span class="ldot" style="background:var(--green-l)"></span>Healthy</span>
+          <span><span class="ldot" style="background:var(--red)"></span>Offline</span>
+          <span><span class="ldot" style="background:var(--blue-l)"></span>Recovered</span>
+        </div>
+      </div>
+
+      <div class="srv-grid">
+        <!-- SERVER A CARD -->
+        <div class="scard sb" id="cardA">
+          <div class="scard-top">
+            <div class="scard-tl">
+              <div class="shw b">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round">
+                  <rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <div class="sname">Server A <span class="bpill on" id="badgeA">HEALTHY</span></div>
+                <div class="sport">Port 5001 · Fiction / Fantasy / Adventure</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:11px; color:var(--t3); font-family:var(--mono);">Routing Score:</span>
+              <strong id="scoreA" style="font-size:14px; color:var(--blue-l); font-family:var(--mono); margin-left:4px;">15.2</strong>
+            </div>
+          </div>
+          <div class="scard-body">
+            <div class="smets">
+              <div>
+                <div class="smv"><span id="aBk">—</span></div>
+                <div class="sml">Books Stored</div>
+              </div>
+              <div>
+                <div class="smv"><span id="aLat">— ms</span></div>
+                <div class="sml">Latency</div>
+              </div>
+              <div>
+                <div class="smv"><span id="aAct">0</span></div>
+                <div class="sml">Active Reqs</div>
+              </div>
+            </div>
+            <div class="scats">
+              <span class="scats-lbl">Partition:</span>
+              <span class="chip b">Fiction</span>
+              <span class="chip b">Fantasy</span>
+              <span class="chip b">Adventure</span>
+            </div>
+            <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-bottom:12px;">
+              Total Handled: <strong id="aRq" style="color:var(--t1);">0</strong> &nbsp;·&nbsp;
+              Failures: <strong id="aFail" style="color:var(--amber);">0</strong>
+            </div>
+            <button class="sbtn b" onclick="window.location.href='/servers'">
+              View Detailed Metrics & Logs
+            </button>
+          </div>
+        </div>
+
+        <!-- SERVER B CARD -->
+        <div class="scard sp" id="cardB">
+          <div class="scard-top">
+            <div class="scard-tl">
+              <div class="shw p">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round">
+                  <rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <div class="sname">Server B <span class="bpill on" id="badgeB">HEALTHY</span></div>
+                <div class="sport">Port 5002 · Science / Technology / Math</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:11px; color:var(--t3); font-family:var(--mono);">Routing Score:</span>
+              <strong id="scoreB" style="font-size:14px; color:var(--purple-l); font-family:var(--mono); margin-left:4px;">16.0</strong>
+            </div>
+          </div>
+          <div class="scard-body">
+            <div class="smets">
+              <div>
+                <div class="smv"><span id="bBk">—</span></div>
+                <div class="sml">Books Stored</div>
+              </div>
+              <div>
+                <div class="smv"><span id="bLat">— ms</span></div>
+                <div class="sml">Latency</div>
+              </div>
+              <div>
+                <div class="smv"><span id="bAct">0</span></div>
+                <div class="sml">Active Reqs</div>
+              </div>
+            </div>
+            <div class="scats">
+              <span class="scats-lbl">Partition:</span>
+              <span class="chip p">Science</span>
+              <span class="chip p">Technology</span>
+              <span class="chip p">Math</span>
+            </div>
+            <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-bottom:12px;">
+              Total Handled: <strong id="bRq" style="color:var(--t1);">0</strong> &nbsp;·&nbsp;
+              Failures: <strong id="bFail" style="color:var(--amber);">0</strong>
+            </div>
+            <button class="sbtn p" onclick="window.location.href='/servers'">
+              View Detailed Metrics & Logs
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOAD DISTRIBUTION METER -->
+      <div style="margin-top:20px; padding:16px; background:var(--bg); border-radius:var(--r2); border:1px solid var(--border);">
+        <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:600; margin-bottom:6px;">
+          <span>Server A Request Share: <strong id="shareTextA" style="color:var(--blue-l);">50%</strong></span>
+          <span>Server B Request Share: <strong id="shareTextB" style="color:var(--purple-l);">50%</strong></span>
+        </div>
+        <div class="meter-wrap">
+          <div class="meter-fill meter-a" id="meterA" style="width:50%;"></div>
+          <div class="meter-fill meter-b" id="meterB" style="width:50%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE DEMONSTRATION & SIMULATION CONTROLS -->
+    <div class="demo-panel">
+      <div class="demo-header">
+        <div>
+          <h4 style="font-size:15px; color:var(--t1); display:flex; align-items:center; gap:8px;">
+            🧪 Live Defense Demonstration Controls
+          </h4>
+          <p style="font-size:12px; color:var(--t3); margin-top:2px;">
+            Simulate real distributed conditions to demonstrate dynamic load rebalancing & automatic failover to the examiners.
+          </p>
+        </div>
+        <button class="btn btn-s" onclick="resetSimulations()">Reset All Simulations</button>
+      </div>
+
+      <div class="demo-grid">
+        <div style="background:var(--bg); padding:14px; border-radius:var(--r1); border:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:600; color:var(--blue-l); margin-bottom:4px;">1. Uneven Load Test</div>
+          <div style="font-size:11px; color:var(--t3); margin-bottom:10px;">Artificially increase latency & active requests on Server A to see traffic dynamically route to Server B.</div>
+          <button class="btn btn-o" style="width:100%; justify-content:center; font-size:12px;" onclick="simulateLoad('server_a')">
+            Spike Load on Server A
+          </button>
+        </div>
+
+        <div style="background:var(--bg); padding:14px; border-radius:var(--r1); border:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:600; color:var(--red); margin-bottom:4px;">2. Fault Injection (Failover)</div>
+          <div style="font-size:11px; color:var(--t3); margin-bottom:10px;">Drop Server A to OFFLINE to demonstrate automatic failover without crashing the Gateway.</div>
+          <button class="btn btn-s" style="width:100%; justify-content:center; font-size:12px; color:var(--red); border-color:var(--red-brd);" onclick="toggleFailover('server_a')">
+            Toggle Server A Failure
+          </button>
+        </div>
+
+        <div style="background:var(--bg); padding:14px; border-radius:var(--r1); border:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:600; color:var(--green-l); margin-bottom:4px;">3. Automatic Recovery</div>
+          <div style="font-size:11px; color:var(--t3); margin-bottom:10px;">Gateway health checker automatically detects recovered server and re-adds it to the eligible pool.</div>
+          <button class="btn btn-s" style="width:100%; justify-content:center; font-size:12px; color:var(--green-l); border-color:var(--green-brd);" onclick="resetSimulations()">
+            Trigger Recovery
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE FLOW -->
+    <div class="divider"></div>
+    <div class="sec-hd">
+      <div>
+        <div class="sec-t">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          Distributed System Request Flow
+        </div>
+        <div class="sec-sub">Data Partitioning + Dynamic Load Balancing + Automatic Failover</div>
+      </div>
+    </div>
+
+    <section class="architecture">
+      <div class="arch-flow">
+        <div class="arch-box">
+          👤 Client / Student
+          <small>Role Authenticated</small>
+        </div>
+
+        <div class="arch-arrow">➔</div>
+
+        <div class="arch-box highlight">
+          ⚖️ Gateway & Load Balancer
+          <small>Dynamic Routing Score & Failover</small>
+        </div>
+
+        <div class="arch-arrow">➔</div>
+
+        <div class="arch-box server-a">
+          🖥️ Server A (5001)
+          <small>Fiction / Fantasy / Adventure</small>
+        </div>
+
+        <div class="arch-arrow">⤹ failover ⤵</div>
+
+        <div class="arch-box server-b">
+          🖥️ Server B (5002)
+          <small>Science / Tech / Math</small>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== TAB 2: BOOK CATALOG ==================== -->
+  <div id="view-books" class="tab-view" style="display:none;">
+    <div class="sec-hd">
+      <div>
+        <div class="sec-t">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Distributed Book Catalog
+        </div>
+        <div class="sec-sub">Search and explore books seamlessly merged across distributed server nodes</div>
+      </div>
+      <button class="btn btn-p" id="adminAddBookBtn" onclick="openM('addModal')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Add New Book
+      </button>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <input type="text" id="bookSearchQ" class="search-inp" placeholder="Search by title, author, or genre..." oninput="filterBooks()">
+      
+      <select id="genreFilter" class="filter-sel" onchange="filterBooks()">
+        <option value="All">All Genres</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Science">Science</option>
+        <option value="Technology">Technology</option>
+        <option value="Math">Math</option>
+      </select>
+
+      <select id="availFilter" class="filter-sel" onchange="filterBooks()">
+        <option value="All">All Availability</option>
+        <option value="Available">Available</option>
+        <option value="Issued">Issued</option>
+      </select>
+
+      <button class="btn btn-s" onclick="loadBooksCatalog()">Apply</button>
+    </div>
+
+    <!-- BOOKS TABLE -->
+    <div class="table-wrap">
+      <table class="data-tbl">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Node / Server</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="booksTableBody">
+          <tr><td colspan="7" style="text-align:center; padding:30px;">Loading distributed books catalog...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== TAB 3: MY ISSUED BOOKS (STUDENT) ==================== -->
+  <div id="view-mybooks" class="tab-view" style="display:none;">
+    <div class="sec-hd">
+      <div>
+        <div class="sec-t">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          My Issued Books Shelf
+        </div>
+        <div class="sec-sub">Track your borrowed books, upcoming due dates, and fine calculations</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-tbl">
+        <thead>
+          <tr>
+            <th>Issue ID</th>
+            <th>Book Title</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Days Left / Overdue</th>
+            <th>Accumulated Fine</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="myBooksTableBody">
+          <tr><td colspan="7" style="text-align:center; padding:30px;">Loading your issued books...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== TAB 4: ISSUE / RETURN MANAGEMENT ==================== -->
+  <div id="view-issues" class="tab-view" style="display:none;">
+    <div class="sec-hd">
+      <div>
+        <div class="sec-t">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+          </svg>
+          Issue & Return Records
+        </div>
+        <div class="sec-sub">Comprehensive audit trail of distributed book transactions</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-tbl">
+        <thead>
+          <tr>
+            <th>Record ID</th>
+            <th>Book Title</th>
+            <th>Borrower</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+            <th>Fine</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="issueRecordsTableBody">
+          <tr><td colspan="8" style="text-align:center; padding:30px;">Loading audit logs...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== TAB 5: ANALYTICS ==================== -->
+  <div id="view-analytics" class="tab-view" style="display:none;">
+    <div class="sec-hd">
+      <div>
+        <div class="sec-t">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          Distributed System & Library Analytics
+        </div>
+        <div class="sec-sub">Real-time metrics, popularity trends, and node load balances</div>
+      </div>
+    </div>
+
+    <div class="srv-grid" style="margin-bottom:24px;">
+      <!-- POPULAR BOOKS -->
+      <div class="scard sb" style="padding:22px;">
+        <h4 style="font-size:16px; font-weight:700; color:var(--t1); margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+          🏆 Most Borrowed Books
+        </h4>
+        <div id="popularBooksList" style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Items inserted dynamically -->
+        </div>
+      </div>
+
+      <!-- GENRE DISTRIBUTION -->
+      <div class="scard sp" style="padding:22px;">
+        <h4 style="font-size:16px; font-weight:700; color:var(--t1); margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+          📊 Books by Genre Distribution
+        </h4>
+        <div id="genreDistributionList" style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Items inserted dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Distributed Library Management System · Dynamic Load Balancing & Automatic Failover Engine
+  </div>
+
+</div>
+
+<!-- ==================== MODALS ==================== -->
+
+<!-- ADD BOOK MODAL -->
+<div class="overlay" id="addModal" onclick="closeM('addModal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-t">Add New Book to Distributed Network</div>
+    <div class="modal-s">Dynamically routes to partition or least-loaded node</div>
+    
+    <div class="fld">
+      <label>Book Title</label>
+      <input type="text" id="addTitle" placeholder="e.g. Clean Architecture">
+    </div>
+    <div class="fld">
+      <label>Author</label>
+      <input type="text" id="addAuthor" placeholder="e.g. Robert C. Martin">
+    </div>
+    <div class="fld">
+      <label>Genre</label>
+      <select id="addGenre">
+        <optgroup label="── Server A Partition">
+          <option value="Fiction">Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Adventure">Adventure</option>
+        </optgroup>
+        <optgroup label="── Server B Partition">
+          <option value="Science">Science</option>
+          <option value="Technology">Technology</option>
+          <option value="Math">Math</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-s" onclick="closeM('addModal')">Cancel</button>
+      <button class="btn btn-p" onclick="submitAddBook()">Save & Route</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT BOOK MODAL -->
+<div class="overlay" id="editModal" onclick="closeM('editModal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-t">Edit Book Details</div>
+    <div class="modal-s">Updates node record across distributed system</div>
+    <input type="hidden" id="editBookId">
+    
+    <div class="fld">
+      <label>Book Title</label>
+      <input type="text" id="editTitle">
+    </div>
+    <div class="fld">
+      <label>Author</label>
+      <input type="text" id="editAuthor">
+    </div>
+    <div class="fld">
+      <label>Genre</label>
+      <select id="editGenre">
+        <option value="Fiction">Fiction</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Science">Science</option>
+        <option value="Technology">Technology</option>
+        <option value="Math">Math</option>
+      </select>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-s" onclick="closeM('editModal')">Cancel</button>
+      <button class="btn btn-p" onclick="submitEditBook()">Update Book</button>
+    </div>
+  </div>
+</div>
+
+<!-- ISSUE BOOK MODAL -->
+<div class="overlay" id="issueModal" onclick="closeM('issueModal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-t">Issue Book</div>
+    <div class="modal-s" id="issueModalSubtitle">Assign book to student account</div>
+    <input type="hidden" id="issueBookId">
+    
+    <div class="fld">
+      <label>Student Username</label>
+      <input type="text" id="issueUsername" placeholder="e.g. student">
+    </div>
+    <div class="fld">
+      <label>Loan Duration (Days)</label>
+      <input type="number" id="issueDueDays" value="14" min="1" max="60">
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-s" onclick="closeM('issueModal')">Cancel</button>
+      <button class="btn btn-p" onclick="submitIssueBook()">Confirm Issue</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toastEl">
+  <span class="tdot g" id="tDot"></span>
+  <span id="tMsg"></span>
+</div>
+
+<script>
+// Authentication & User State
+let currentUser = null;
+let currentToken = null;
+let cachedBooks = [];
+
+function $(id){ return document.getElementById(id); }
+
+function toast(msg, type='g'){
+  $('tMsg').textContent = msg;
+  $('tDot').className = 'tdot ' + type;
+  const t = $('toastEl');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function openM(id){ $(id).classList.add('open'); }
+function closeM(id){ $(id).classList.remove('open'); }
+
+// Init Auth
+function initAuth(){
+  const userStr = localStorage.getItem("lms_user");
+  currentToken = localStorage.getItem("lms_token");
+  if(userStr && currentToken){
+    try{
+      currentUser = JSON.parse(userStr);
+    }catch(e){}
+  }
+  if(!currentUser){
+    currentUser = { username: "student", name: "Alex Student", role: "student" };
+  }
+
+  $('userNameText').textContent = currentUser.name || currentUser.username;
+  const roleBadge = $('userRoleBadge');
+  roleBadge.textContent = currentUser.role.toUpperCase();
+  roleBadge.className = `badge badge-role badge-${currentUser.role}`;
+
+  // Permissions visibility
+  if(currentUser.role !== 'admin'){
+    if($('adminAddBookBtn')) $('adminAddBookBtn').style.display = 'none';
+  } else {
+    if($('adminAddBookBtn')) $('adminAddBookBtn').style.display = 'inline-flex';
+  }
+}
+
+function handleLogout(){
+  localStorage.removeItem("lms_user");
+  localStorage.removeItem("lms_token");
+  window.location.href = "/login";
+}
+
+// Navigation Tabs
+function switchNav(tabName){
+  const tabs = ['dashboard', 'books', 'mybooks', 'issues', 'analytics'];
+  tabs.forEach(t => {
+    const btn = $(`tabBtn-${t}`);
+    const view = $(`view-${t}`);
+    if(btn) btn.className = 'nav-tab' + (t === tabName ? ' active' : '');
+    if(view) view.style.display = (t === tabName ? 'block' : 'none');
+  });
+
+  if(tabName === 'books') loadBooksCatalog();
+  if(tabName === 'mybooks') loadMyBooks();
+  if(tabName === 'issues') loadIssueRecords();
+  if(tabName === 'analytics') loadAnalytics();
+}
+
+function refreshCurrentTab(){
+  loadServerStats();
+  loadBooksCatalog();
+  loadMyBooks();
+}
+
+// ---------------- DASHBOARD & SERVER STATS ---------------- //
+
+async function loadServerStats(){
+  try{
+    const res = await fetch("/server_status");
+    const data = await res.json();
+
+    $('activeServers').textContent = `${data.active_servers} / ${data.total_servers}`;
+    $('totalBooks').textContent = data.total_books ?? 0;
+    $('totalRequests').textContent = data.total_requests ?? 0;
+
+    const allHealthy = data.active_servers === data.total_servers;
+    $('statusPill').className = 'pill ' + (allHealthy ? 'pill-ok' : 'pill-err');
+    $('statusText').textContent = allHealthy ? 'All Systems Operational' : 'Partial Failover Active';
+    $('statusDot').className = 'pulse' + (allHealthy ? '' : ' red');
+
+    // Server A
+    const sA = data.servers?.["5001"];
+    if(sA){
+      $('aBk').textContent = sA.books;
+      $('aLat').textContent = `${sA.latency_ms} ms`;
+      $('aAct').textContent = sA.active_requests;
+      $('aRq').textContent = sA.requests;
+      $('aFail').textContent = sA.failure_count;
+      $('scoreA').textContent = sA.routing_score;
+      updateServerBadge('badgeA', sA.detailed_status);
+    }
+
+    // Server B
+    const sB = data.servers?.["5002"];
+    if(sB){
+      $('bBk').textContent = sB.books;
+      $('bLat').textContent = `${sB.latency_ms} ms`;
+      $('bAct').textContent = sB.active_requests;
+      $('bRq').textContent = sB.requests;
+      $('bFail').textContent = sB.failure_count;
+      $('scoreB').textContent = sB.routing_score;
+      updateServerBadge('badgeB', sB.detailed_status);
+    }
+
+    // Load shares
+    const reqA = sA?.requests || 0;
+    const reqB = sB?.requests || 0;
+    const tot = Math.max(1, reqA + reqB);
+    const pctA = Math.round((reqA / tot) * 100);
+    const pctB = 100 - pctA;
+    $('shareTextA').textContent = `${pctA}%`;
+    $('shareTextB').textContent = `${pctB}%`;
+    $('meterA').style.width = `${pctA}%`;
+    $('meterB').style.width = `${pctB}%`;
+
+  }catch(err){
+    console.error("Failed to load server stats", err);
+  }
+}
+
+function updateServerBadge(id, status){
+  const el = $(id);
+  if(!el) return;
+  const st = (status || "").toUpperCase();
+  el.textContent = st;
+  if(st === 'HEALTHY' || st === 'ACTIVE'){
+    el.className = 'bpill on';
+  } else if(st === 'RECOVERED'){
+    el.className = 'bpill';
+    el.style.background = 'var(--blue-dim)';
+    el.style.color = 'var(--blue-l)';
+    el.style.borderColor = 'var(--blue-brd)';
+  } else {
+    el.className = 'bpill off';
+  }
+}
+
+// ---------------- BOOKS CATALOG ---------------- //
+
+async function loadBooksCatalog(){
+  try{
+    const res = await fetch("/books");
+    const books = await res.json();
+    cachedBooks = books;
+
+    // Update stat numbers
+    const issued = books.filter(b => b.availability === 'Issued').length;
+    $('issuedBooksStat').textContent = issued;
+    $('availableBooksStat').textContent = `${books.length - issued} available`;
+
+    renderBooksTable(books);
+  }catch(err){
+    $('booksTableBody').innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--red);">Failed to retrieve books from Gateway.</td></tr>`;
+  }
+}
+
+function filterBooks(){
+  const q = $('bookSearchQ').value.toLowerCase().trim();
+  const genre = $('genreFilter').value;
+  const avail = $('availFilter').value;
+
+  const filtered = cachedBooks.filter(b => {
+    const mQuery = !q || b.title.toLowerCase().includes(q) || (b.author && b.author.toLowerCase().includes(q)) || b.genre.toLowerCase().includes(q);
+    const mGenre = genre === 'All' || b.genre.toLowerCase() === genre.toLowerCase();
+    const mAvail = avail === 'All' || b.availability.toLowerCase() === avail.toLowerCase();
+    return mQuery && mGenre && mAvail;
+  });
+
+  renderBooksTable(filtered);
+}
+
+function renderBooksTable(books){
+  const tbody = $('booksTableBody');
+  if(!books.length){
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--t3);">No matching books found.</td></tr>`;
+    return;
+  }
+
+  const isAdmin = currentUser && currentUser.role === 'admin';
+
+  tbody.innerHTML = books.map(b => {
+    const isAvail = b.availability === 'Available';
+    const serverNode = b.server || (['Fiction', 'Fantasy', 'Adventure'].includes(b.genre) ? 'Server A' : 'Server B');
+
+    let actions = '';
+    if(isAvail){
+      actions += `<button class="btn btn-p" style="padding:5px 10px; font-size:11px;" onclick="openIssueModal('${b.id}', '${b.title.replace(/'/g, "\\'")}')">Issue</button>`;
+    } else {
+      actions += `<span style="font-size:11px; color:var(--t3); margin-right:8px;">Issued to <strong>${b.issued_to}</strong></span>`;
+      actions += `<button class="btn btn-s" style="padding:5px 10px; font-size:11px;" onclick="submitReturnBook('${b.id}')">Return</button>`;
+    }
+
+    if(isAdmin){
+      actions += ` <button class="btn btn-s" style="padding:5px 8px; font-size:11px;" onclick="openEditModal('${b.id}')">✏️</button>`;
+      actions += ` <button class="btn btn-s" style="padding:5px 8px; font-size:11px; color:var(--red);" onclick="submitDeleteBook('${b.id}')">🗑️</button>`;
+    }
+
+    return `
+      <tr>
+        <td style="font-family:var(--mono); font-size:12px; color:var(--t3);">${b.id}</td>
+        <td><strong style="color:var(--t1);">${b.title}</strong></td>
+        <td>${b.author || 'Unknown'}</td>
+        <td><span class="chip ${['Fiction','Fantasy','Adventure'].includes(b.genre) ? 'b' : 'p'}">${b.genre}</span></td>
+        <td style="font-family:var(--mono); font-size:12px;">${serverNode}</td>
+        <td>
+          <span class="badge ${isAvail ? 'badge-available' : 'badge-issued'}">
+            ${b.availability}
+          </span>
+        </td>
+        <td>${actions}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// ---------------- ADD / EDIT / DELETE BOOKS ---------------- //
+
+async function submitAddBook(){
+  const title = $('addTitle').value.trim();
+  const author = $('addAuthor').value.trim();
+  const genre = $('addGenre').value;
+
+  if(!title){
+    toast("Book title required", "r");
+    return;
+  }
+
+  try{
+    const res = await fetch("/add_book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, author, genre })
+    });
+    const data = await res.json();
+    if(res.ok){
+      toast(`Book added to ${data.routed_server}! (${data.routing_reason})`, "g");
+      closeM('addModal');
+      $('addTitle').value = '';
+      $('addAuthor').value = '';
+      loadBooksCatalog();
+      loadServerStats();
+    } else {
+      toast(data.error || "Failed to add book", "r");
+    }
+  }catch(err){
+    toast("Network error communicating with Gateway", "r");
+  }
+}
+
+function openEditModal(bookId){
+  const b = cachedBooks.find(x => x.id === bookId);
+  if(!b) return;
+  $('editBookId').value = b.id;
+  $('editTitle').value = b.title;
+  $('editAuthor').value = b.author || '';
+  $('editGenre').value = b.genre;
+  openM('editModal');
+}
+
+async function submitEditBook(){
+  const id = $('editBookId').value;
+  const title = $('editTitle').value.trim();
+  const author = $('editAuthor').value.trim();
+  const genre = $('editGenre').value;
+
+  try{
+    const res = await fetch(`/books/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${currentToken}`
+      },
+      body: JSON.stringify({ title, author, genre })
+    });
+    if(res.ok){
+      toast("Book details updated", "g");
+      closeM('editModal');
+      loadBooksCatalog();
+    } else {
+      const d = await res.json();
+      toast(d.error || "Update failed", "r");
+    }
+  }catch(err){
+    toast("Server error", "r");
+  }
+}
+
+async function submitDeleteBook(bookId){
+  if(!confirm(`Are you sure you want to delete book ID ${bookId}?`)) return;
+  try{
+    const res = await fetch(`/books/${bookId}`, {
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${currentToken}` }
+    });
+    if(res.ok){
+      toast("Book deleted successfully", "g");
+      loadBooksCatalog();
+      loadServerStats();
+    } else {
+      toast("Delete failed", "r");
+    }
+  }catch(err){
+    toast("Server error", "r");
+  }
+}
+
+// ---------------- ISSUE & RETURN ---------------- //
+
+function openIssueModal(bookId, bookTitle){
+  $('issueBookId').value = bookId;
+  $('issueModalSubtitle').textContent = `Issuing: "${bookTitle}"`;
+  $('issueUsername').value = currentUser?.username || 'student';
+  openM('issueModal');
+}
+
+async function submitIssueBook(){
+  const bookId = $('issueBookId').value;
+  const username = $('issueUsername').value.trim() || 'student';
+  const dueDays = parseInt($('issueDueDays').value) || 14;
+
+  try{
+    const res = await fetch(`/books/${bookId}/issue`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, due_days: dueDays })
+    });
+    const data = await res.json();
+    if(res.ok){
+      toast(`Book issued to ${username}!`, "g");
+      closeM('issueModal');
+      loadBooksCatalog();
+      loadMyBooks();
+    } else {
+      toast(data.error || "Issue failed", "r");
+    }
+  }catch(err){
+    toast("Network error", "r");
+  }
+}
+
+async function submitReturnBook(bookId){
+  try{
+    const res = await fetch(`/books/${bookId}/return`, {
+      method: "POST"
+    });
+    const data = await res.json();
+    if(res.ok){
+      if(data.overdue_days > 0){
+        toast(`Returned with fine: ₹${data.fine_amount} (${data.overdue_days} days overdue)`, "r");
+      } else {
+        toast("Book returned on time! No fine.", "g");
+      }
+      loadBooksCatalog();
+      loadMyBooks();
+    } else {
+      toast(data.error || "Return failed", "r");
+    }
+  }catch(err){
+    toast("Network error", "r");
+  }
+}
+
+// ---------------- MY ISSUED BOOKS ---------------- //
+
+async function loadMyBooks(){
+  try{
+    const res = await fetch(`/my_books?username=${encodeURIComponent(currentUser.username)}`);
+    const issues = await res.json();
+    $('myBooksCount').textContent = issues.length;
+
+    const tbody = $('myBooksTableBody');
+    if(!issues.length){
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--t3);">You currently have no issued books.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = issues.map(iss => {
+      const isOverdue = iss.overdue_days > 0;
+      return `
+        <tr>
+          <td style="font-family:var(--mono); font-size:12px; color:var(--t3);">${iss.id}</td>
+          <td><strong style="color:var(--t1);">${iss.book_title}</strong></td>
+          <td>${iss.issue_date}</td>
+          <td>${iss.due_date}</td>
+          <td>
+            <span class="badge ${isOverdue ? 'badge-overdue' : 'badge-available'}">
+              ${isOverdue ? `Overdue by ${iss.overdue_days} days` : 'Active Loan'}
+            </span>
+          </td>
+          <td style="font-family:var(--mono); color:${isOverdue ? 'var(--red)' : 'var(--green-l)'};">
+            ₹${iss.current_fine || 0}
+          </td>
+          <td>
+            <button class="btn btn-p" style="padding:6px 12px; font-size:11px;" onclick="submitReturnBook('${iss.book_id}')">
+              Return Book
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }catch(err){
+    console.error("Failed to load my books", err);
+  }
+}
+
+// ---------------- ISSUE RECORDS AUDIT ---------------- //
+
+async function loadIssueRecords(){
+  try{
+    const res = await fetch("/issue_records");
+    const records = await res.json();
+
+    const tbody = $('issueRecordsTableBody');
+    if(!records.length){
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--t3);">No transactions recorded yet.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = records.map(r => `
+      <tr>
+        <td style="font-family:var(--mono); font-size:12px; color:var(--t3);">${r.id}</td>
+        <td><strong style="color:var(--t1);">${r.book_title}</strong></td>
+        <td>👤 ${r.username}</td>
+        <td>${r.issue_date}</td>
+        <td>${r.due_date}</td>
+        <td>${r.return_date || '—'}</td>
+        <td style="font-family:var(--mono);">₹${r.fine_amount || 0}</td>
+        <td>
+          <span class="badge ${r.status === 'Issued' ? 'badge-issued' : 'badge-available'}">
+            ${r.status}
+          </span>
+        </td>
+      </tr>
+    `).join('');
+  }catch(err){
+    console.error("Failed to load issue records", err);
+  }
+}
+
+// ---------------- ANALYTICS ---------------- //
+
+async function loadAnalytics(){
+  try{
+    const res = await fetch("/analytics");
+    const data = await res.json();
+
+    // Popular books
+    const popList = $('popularBooksList');
+    popList.innerHTML = (data.popular_books || []).map((b, idx) => `
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--bg); border-radius:var(--r1); border:1px solid var(--border);">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-family:var(--mono); font-weight:700; color:var(--blue-l); font-size:14px;">#${idx+1}</span>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--t1);">${b.title}</div>
+            <div style="font-size:11px; color:var(--t3);">${b.author} · ${b.genre}</div>
+          </div>
+        </div>
+        <span class="badge badge-issued">${b.issue_count} Issues</span>
+      </div>
+    `).join('');
+
+    // Genre distribution
+    const genList = $('genreDistributionList');
+    const genres = data.genre_distribution || {};
+    genList.innerHTML = Object.keys(genres).map(g => `
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--bg); border-radius:var(--r1); border:1px solid var(--border);">
+        <span style="font-size:13px; font-weight:600; color:var(--t1);">${g}</span>
+        <span class="badge badge-available">${genres[g]} Books</span>
+      </div>
+    `).join('');
+
+  }catch(err){
+    console.error("Failed to load analytics", err);
+  }
+}
+
+// ---------------- SIMULATION ACTIONS ---------------- //
+
+async function simulateLoad(server){
+  try{
+    const res = await fetch("/api/simulate_load", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ server })
+    });
+    const d = await res.json();
+    toast(d.message, "g");
+    setTimeout(loadServerStats, 1000);
+  }catch(e){
+    toast("Simulation failed", "r");
+  }
+}
+
+async function toggleFailover(server){
+  try{
+    const res = await fetch("/api/simulate_failover", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ server })
+    });
+    const d = await res.json();
+    toast(d.message, d.is_offline ? "r" : "g");
+    setTimeout(loadServerStats, 1000);
+  }catch(e){
+    toast("Failover test failed", "r");
+  }
+}
+
+async function resetSimulations(){
+  try{
+    const res = await fetch("/api/reset_simulation", { method: "POST" });
+    const d = await res.json();
+    toast(d.message, "g");
+    setTimeout(loadServerStats, 1000);
+  }catch(e){
+    toast("Reset failed", "r");
+  }
+}
+
+// Initial bootstrap
+initAuth();
+loadServerStats();
+loadBooksCatalog();
+loadMyBooks();
+
+// Real-time telemetry interval (every 4s)
+setInterval(loadServerStats, 4000);
+</script>
+
+</body>
+</html>

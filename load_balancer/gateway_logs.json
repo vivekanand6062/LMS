@@ -1,0 +1,592 @@
+[
+  {
+    "request_id": "233c85c4",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4107.68,
+    "timestamp": "2026-10-08T19:39:41.408725"
+  },
+  {
+    "request_id": "91b42e15",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4103.84,
+    "timestamp": "2026-10-08T19:39:29.445040"
+  },
+  {
+    "request_id": "8bb309f0",
+    "action": "USER LOGIN: admin (admin)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:39:24.702742"
+  },
+  {
+    "request_id": "361102c0",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4110.86,
+    "timestamp": "2026-10-08T19:39:08.805543"
+  },
+  {
+    "request_id": "9fa2bb10",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4103.49,
+    "timestamp": "2026-10-08T19:38:59.206378"
+  },
+  {
+    "request_id": "2b54024c",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:38:54.450723"
+  },
+  {
+    "request_id": "14c5fb86",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4103.92,
+    "timestamp": "2026-10-08T19:38:23.625346"
+  },
+  {
+    "request_id": "500026a2",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:38:18.886557"
+  },
+  {
+    "request_id": "d3f966f4",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4088.71,
+    "timestamp": "2026-10-08T19:38:13.236007"
+  },
+  {
+    "request_id": "32a80410",
+    "action": "HEALTH MONITOR: Server B RECOVERED",
+    "server": "http://localhost:5002",
+    "status": "success",
+    "routing_score": null,
+    "reason": "server_recovery",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:37:53.323480"
+  },
+  {
+    "request_id": "0347f24d",
+    "action": "HEALTH MONITOR: Server A RECOVERED",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "server_recovery",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:37:24.013016"
+  },
+  {
+    "request_id": "4afb1d95",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.05,
+    "timestamp": "2026-10-08T19:32:19.569597"
+  },
+  {
+    "request_id": "f21a2da1",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:32:18.926256"
+  },
+  {
+    "request_id": "1ed002ba",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.07,
+    "timestamp": "2026-10-08T19:32:09.275955"
+  },
+  {
+    "request_id": "7b25623d",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.06,
+    "timestamp": "2026-10-08T19:31:41.177344"
+  },
+  {
+    "request_id": "9c9709ad",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4071.2,
+    "timestamp": "2026-10-08T19:31:35.013204"
+  },
+  {
+    "request_id": "67078945",
+    "action": "HEALTH MONITOR: Server B FAILED",
+    "server": "http://localhost:5002",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:31:33.315890"
+  },
+  {
+    "request_id": "4e28d74d",
+    "action": "HEALTH MONITOR: Server A FAILED",
+    "server": "http://localhost:5001",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:31:29.223085"
+  },
+  {
+    "request_id": "e3395ca4",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:27:51.370868"
+  },
+  {
+    "request_id": "f484fc4a",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.08,
+    "timestamp": "2026-10-08T19:27:34.135743"
+  },
+  {
+    "request_id": "c3b2a643",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:27:33.517227"
+  },
+  {
+    "request_id": "7bdf0f07",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.06,
+    "timestamp": "2026-10-08T19:27:24.223858"
+  },
+  {
+    "request_id": "2b9d385c",
+    "action": "GET /books (Distributed Merge)",
+    "server": "None",
+    "status": "error",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 0.08,
+    "timestamp": "2026-10-08T19:26:30.741752"
+  },
+  {
+    "request_id": "294bc02c",
+    "action": "HEALTH MONITOR: Server B FAILED",
+    "server": "http://localhost:5002",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:26:29.779743"
+  },
+  {
+    "request_id": "c822fbee",
+    "action": "HEALTH MONITOR: Server A FAILED",
+    "server": "http://localhost:5001",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:26:25.704644"
+  },
+  {
+    "request_id": "41831fbf",
+    "action": "HEALTH MONITOR: Server B FAILED",
+    "server": "http://localhost:5002",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:14:03.884049"
+  },
+  {
+    "request_id": "199ab08d",
+    "action": "HEALTH MONITOR: Server A FAILED",
+    "server": "http://localhost:5001",
+    "status": "error",
+    "routing_score": null,
+    "reason": "health_check_failed",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:13:59.787742"
+  },
+  {
+    "request_id": "24f3cf05",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4093.81,
+    "timestamp": "2026-10-07T22:09:26.240759"
+  },
+  {
+    "request_id": "84fccbf8",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4118.11,
+    "timestamp": "2026-10-07T22:01:43.440023"
+  },
+  {
+    "request_id": "a98cb9ba",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T22:01:38.743443"
+  },
+  {
+    "request_id": "fececace",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4078.53,
+    "timestamp": "2026-10-07T22:01:36.973870"
+  },
+  {
+    "request_id": "d5e4a5b9",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4109.49,
+    "timestamp": "2026-10-07T22:01:29.986752"
+  },
+  {
+    "request_id": "64154edd",
+    "action": "USER LOGIN: admin (admin)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T22:01:25.265274"
+  },
+  {
+    "request_id": "466bf618",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4096.93,
+    "timestamp": "2026-10-07T22:01:25.253582"
+  },
+  {
+    "request_id": "3876589b",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T22:01:20.555785"
+  },
+  {
+    "request_id": "8305c2fe",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4087.11,
+    "timestamp": "2026-10-07T22:00:47.644125"
+  },
+  {
+    "request_id": "8641410c",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4106.04,
+    "timestamp": "2026-10-07T22:00:18.094691"
+  },
+  {
+    "request_id": "db69763a",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4109.66,
+    "timestamp": "2026-10-07T21:57:25.987109"
+  },
+  {
+    "request_id": "c6ec266b",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4122.56,
+    "timestamp": "2026-10-07T21:56:12.854599"
+  },
+  {
+    "request_id": "5a07f29a",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4105.6,
+    "timestamp": "2026-10-07T21:37:46.369309"
+  },
+  {
+    "request_id": "5d9db8bc",
+    "action": "USER LOGIN: admin (admin)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:20:27.436534"
+  },
+  {
+    "request_id": "7aeda2e9",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:20:25.409462"
+  },
+  {
+    "request_id": "b0fa1bc9",
+    "action": "RETURN 'The Hobbit' (Fine: \u20b90.0)",
+    "server": "Server A",
+    "status": "success",
+    "routing_score": null,
+    "reason": "book_return",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:20:18.260669"
+  },
+  {
+    "request_id": "0c15669b",
+    "action": "ISSUE 'The Hobbit' -> student",
+    "server": "Server A",
+    "status": "success",
+    "routing_score": null,
+    "reason": "book_issue",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:20:12.148737"
+  },
+  {
+    "request_id": "9ab7c4ab",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4068.87,
+    "timestamp": "2026-10-07T20:20:08.052941"
+  },
+  {
+    "request_id": "c7bfd404",
+    "action": "SEARCH \"Algorithms\"",
+    "server": "Distributed (Server A, Server B)",
+    "status": "success",
+    "routing_score": null,
+    "reason": "standard",
+    "duration_ms": 4052.21,
+    "timestamp": "2026-10-07T20:20:01.944381"
+  },
+  {
+    "request_id": "6793ff7a",
+    "action": "SIMULATION: Server A has RECOVERED. Added back to eligible pool!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:19:52.809279"
+  },
+  {
+    "request_id": "61ed700e",
+    "action": "ADD \"Failover Book During Outage\" (Fantasy)",
+    "server": "Server B",
+    "status": "success",
+    "routing_score": 30.77,
+    "reason": "failover_primary_server_a_offline",
+    "duration_ms": 2031.98,
+    "timestamp": "2026-10-07T20:19:50.756784"
+  },
+  {
+    "request_id": "07adf6bd",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:19:43.675129"
+  },
+  {
+    "request_id": "b821d2c9",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "load_spike",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:19:33.288416"
+  },
+  {
+    "request_id": "9863799d",
+    "action": "ADD \"Artificial Intelligence: A Modern Approach\" (Technology)",
+    "server": "Server B",
+    "status": "success",
+    "routing_score": 30.05,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2045.79,
+    "timestamp": "2026-10-07T20:19:29.249554"
+  },
+  {
+    "request_id": "e3d2ebf2",
+    "action": "ADD \"Dune\" (Fiction)",
+    "server": "Server A",
+    "status": "success",
+    "routing_score": 148.34,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2058.4,
+    "timestamp": "2026-10-07T20:19:25.171147"
+  },
+  {
+    "request_id": "f3aac61f",
+    "action": "ADD \"Dune\" (Fiction)",
+    "server": "Server B",
+    "status": "success",
+    "routing_score": 29.0,
+    "reason": "failover_primary_server_a_offline",
+    "duration_ms": 2038.01,
+    "timestamp": "2026-10-07T20:18:37.961750"
+  },
+  {
+    "request_id": "8142aaf3",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:18:20.601024"
+  },
+  {
+    "request_id": "1930bf7f",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "server": "http://localhost:5001",
+    "status": "success",
+    "routing_score": null,
+    "reason": "load_spike",
+    "duration_ms": null,
+    "timestamp": "2026-10-07T20:18:10.178489"
+  },
+  {
+    "request_id": "e01bd444",
+    "action": "ADD \"Artificial Intelligence: A Modern Approach\" (Technology)",
+    "server": "Server B",
+    "status": "success",
+    "routing_score": 28.21,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2063.33,
+    "timestamp": "2026-10-07T20:18:06.132359"
+  },
+  {
+    "request_id": "b1af2b60",
+    "action": "ADD \"Dune\" (Fiction)",
+    "server": "Server A",
+    "status": "success",
+    "routing_score": 28.18,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2026.7,
+    "timestamp": "2026-10-07T20:18:02.049071"
+  },
+  {
+    "request_id": "934d4c76",
+    "action": "ADD \"Artificial Intelligence: A Modern Approach\" (Technology)",
+    "server": "Server B",
+    "status": "success",
+    "routing_score": 28.71,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2028.34,
+    "timestamp": "2026-10-07T20:16:17.253485"
+  },
+  {
+    "request_id": "21bb8cc3",
+    "action": "ADD \"Dune\" (Fiction)",
+    "server": "Server A",
+    "status": "success",
+    "routing_score": 28.53,
+    "reason": "primary_partition_healthy",
+    "duration_ms": 2022.91,
+    "timestamp": "2026-10-07T20:16:13.190140"
+  }
+]
