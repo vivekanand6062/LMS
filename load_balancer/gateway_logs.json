@@ -1,5 +1,1952 @@
 [
   {
+    "request_id": "5c1f0467",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4103.2,
+    "timestamp": "2026-10-09T01:26:07.776766"
+  },
+  {
+    "request_id": "09defa9f",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4114.18,
+    "timestamp": "2026-10-09T01:25:59.134967"
+  },
+  {
+    "request_id": "a6d6fb28",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4115.14,
+    "timestamp": "2026-10-09T00:33:00.702930"
+  },
+  {
+    "request_id": "21e34687",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4117.08,
+    "timestamp": "2026-10-09T00:32:55.992155"
+  },
+  {
+    "request_id": "d89be824",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4086.5,
+    "timestamp": "2026-10-09T00:32:46.045433"
+  },
+  {
+    "request_id": "861b8d9f",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4097.13,
+    "timestamp": "2026-10-09T00:32:10.732247"
+  },
+  {
+    "request_id": "9293f9c2",
+    "action": "USER LOGIN: student (student)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Gateway"
+    ],
+    "server": "Gateway",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "auth_login",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:32:06.022416"
+  },
+  {
+    "request_id": "711213ea",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4093.03,
+    "timestamp": "2026-10-09T00:31:58.863985"
+  },
+  {
+    "request_id": "7d3bbe4d",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4115.78,
+    "timestamp": "2026-10-09T00:31:44.154825"
+  },
+  {
+    "request_id": "aeb07e1a",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4093.06,
+    "timestamp": "2026-10-09T00:31:18.529083"
+  },
+  {
+    "request_id": "24375cd2",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4113.56,
+    "timestamp": "2026-10-09T00:31:13.628011"
+  },
+  {
+    "request_id": "35c03bb7",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 30.71,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2030.63,
+    "timestamp": "2026-10-09T00:26:51.963369"
+  },
+  {
+    "request_id": "b6ef0424",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:26:44.851890"
+  },
+  {
+    "request_id": "88c48089",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:26:44.851485"
+  },
+  {
+    "request_id": "6cc66d36",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 29.54,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2047.64,
+    "timestamp": "2026-10-09T00:26:34.600513"
+  },
+  {
+    "request_id": "7e3b8c9e",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:26:29.709623"
+  },
+  {
+    "request_id": "d39c636b",
+    "action": "RETURN 'The Hobbit' (Fine: INR 0.0)",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative return + replica sync",
+    "status": "success",
+    "duration_ms": 6100.21,
+    "timestamp": "2026-10-09T00:26:23.069006"
+  },
+  {
+    "request_id": "5a35a86c",
+    "action": "ISSUE 'The Hobbit' -> student",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative issue + replica sync",
+    "status": "success",
+    "duration_ms": 6106.22,
+    "timestamp": "2026-10-09T00:26:10.351467"
+  },
+  {
+    "request_id": "73449523",
+    "action": "DELETE /books/bk-a-9549d9a4",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative deletion + replica cleanup",
+    "status": "success",
+    "duration_ms": 6095.53,
+    "timestamp": "2026-10-09T00:25:57.626400"
+  },
+  {
+    "request_id": "65b68180",
+    "action": "UPDATE /books/bk-a-9549d9a4",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative update + replica sync",
+    "status": "success",
+    "duration_ms": 4111.65,
+    "timestamp": "2026-10-09T00:25:44.901205"
+  },
+  {
+    "request_id": "7e3a9add",
+    "action": "USER LOGIN: admin (admin)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Gateway"
+    ],
+    "server": "Gateway",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "auth_login",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:25:38.758405"
+  },
+  {
+    "request_id": "b0814b75",
+    "action": "ADD \"Test Adventure Odyssey 1791485726\" (Adventure)",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 37.27,
+    "reason": "Primary authoritative write + replication",
+    "status": "success",
+    "duration_ms": 2048.08,
+    "timestamp": "2026-10-09T00:25:32.147741"
+  },
+  {
+    "request_id": "aa1b89b1",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [],
+    "server": "None",
+    "server_role": "N/A",
+    "routing_score": null,
+    "reason": "All eligible servers for Adventure are OFFLINE",
+    "status": "error",
+    "duration_ms": 0.06,
+    "timestamp": "2026-10-09T00:25:18.126614"
+  },
+  {
+    "request_id": "b530106f",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:25:15.290738"
+  },
+  {
+    "request_id": "1c1ca6df",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:25:13.264199"
+  },
+  {
+    "request_id": "4113578e",
+    "action": "SIMULATION: Server B has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:25:10.422417"
+  },
+  {
+    "request_id": "06cbd865",
+    "action": "RECOVERY SYNC: Server B & Server A",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:25:10.421921"
+  },
+  {
+    "request_id": "706e016c",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 83.35,
+    "reason": "Primary healthy (Replica OFFLINE)",
+    "status": "success",
+    "duration_ms": 2031.74,
+    "timestamp": "2026-10-09T00:25:00.151343"
+  },
+  {
+    "request_id": "6b8a4990",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:24:53.238189"
+  },
+  {
+    "request_id": "267d02b2",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:24:50.390440"
+  },
+  {
+    "request_id": "db4c59ab",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:24:50.390019"
+  },
+  {
+    "request_id": "5457e159",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 26.23,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2048.1,
+    "timestamp": "2026-10-09T00:24:40.111646"
+  },
+  {
+    "request_id": "38620589",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:24:33.152548"
+  },
+  {
+    "request_id": "d5329cea",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 25.86,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2048.27,
+    "timestamp": "2026-10-09T00:24:24.969633"
+  },
+  {
+    "request_id": "edea872e",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:24:18.014986"
+  },
+  {
+    "request_id": "7543ae76",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 33.38,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2068.03,
+    "timestamp": "2026-10-09T00:24:13.956336"
+  },
+  {
+    "request_id": "45c2f26b",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 71.01,
+    "reason": "Primary healthy (Replica OFFLINE)",
+    "status": "success",
+    "duration_ms": 2060.69,
+    "timestamp": "2026-10-09T00:23:48.789787"
+  },
+  {
+    "request_id": "2633fe80",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:23:32.291584"
+  },
+  {
+    "request_id": "1823d850",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:23:29.452070"
+  },
+  {
+    "request_id": "c51458e6",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:23:29.451673"
+  },
+  {
+    "request_id": "1e504377",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 34.97,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2055.51,
+    "timestamp": "2026-10-09T00:23:19.213877"
+  },
+  {
+    "request_id": "a7a83b67",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:23:12.255744"
+  },
+  {
+    "request_id": "1628da18",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 34.42,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2061.73,
+    "timestamp": "2026-10-09T00:23:04.099439"
+  },
+  {
+    "request_id": "e605b235",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:22:57.134784"
+  },
+  {
+    "request_id": "88eaced6",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 36.93,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2041.87,
+    "timestamp": "2026-10-09T00:22:53.086578"
+  },
+  {
+    "request_id": "b07f9a8d",
+    "action": "SIMULATION: Server B has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:22:01.417974"
+  },
+  {
+    "request_id": "9a7b703d",
+    "action": "RECOVERY SYNC: Server B & Server A",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:22:01.417430"
+  },
+  {
+    "request_id": "29858824",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 96.95,
+    "reason": "Primary healthy (Replica OFFLINE)",
+    "status": "success",
+    "duration_ms": 2073.68,
+    "timestamp": "2026-10-09T00:21:51.141177"
+  },
+  {
+    "request_id": "988e2ba5",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:21:44.183682"
+  },
+  {
+    "request_id": "579d3316",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:21:41.345263"
+  },
+  {
+    "request_id": "e92500a8",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:21:41.344778"
+  },
+  {
+    "request_id": "6be9c27f",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 32.59,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2077.62,
+    "timestamp": "2026-10-09T00:21:31.097748"
+  },
+  {
+    "request_id": "95cf8e0b",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:21:24.128622"
+  },
+  {
+    "request_id": "c62cada6",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 32.21,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2074.29,
+    "timestamp": "2026-10-09T00:21:15.915643"
+  },
+  {
+    "request_id": "ab8cbfbf",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:21:08.951725"
+  },
+  {
+    "request_id": "8c82e9c1",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 113.37,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2039.29,
+    "timestamp": "2026-10-09T00:21:04.884054"
+  },
+  {
+    "request_id": "b919478f",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:20:35.733430"
+  },
+  {
+    "request_id": "17a5236a",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:19:16.400661"
+  },
+  {
+    "request_id": "710093b0",
+    "action": "USER LOGIN: admin (admin)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Gateway"
+    ],
+    "server": "Gateway",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "auth_login",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:15:10.545354"
+  },
+  {
+    "request_id": "af645149",
+    "action": "USER LOGIN: student (student)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Gateway"
+    ],
+    "server": "Gateway",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "auth_login",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:15:08.512015"
+  },
+  {
+    "request_id": "db0064ca",
+    "action": "RETURN 'The Hobbit' (Fine: INR 0.0)",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative return + replica sync",
+    "status": "success",
+    "duration_ms": 6127.91,
+    "timestamp": "2026-10-09T00:15:01.390194"
+  },
+  {
+    "request_id": "8cf3ef38",
+    "action": "ISSUE 'The Hobbit' -> student",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative issue + replica sync",
+    "status": "success",
+    "duration_ms": 6138.2,
+    "timestamp": "2026-10-09T00:14:51.180340"
+  },
+  {
+    "request_id": "50a6a42f",
+    "action": "GET /books (Distributed Merge)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A, Server B"
+    ],
+    "server": "Server A, Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "distributed_catalog_merge",
+    "status": "success",
+    "duration_ms": 4143.57,
+    "timestamp": "2026-10-09T00:14:42.994628"
+  },
+  {
+    "request_id": "c0d7b45b",
+    "action": "SEARCH \"Algorithms\"",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Distributed (Server A, Server B)"
+    ],
+    "server": "Distributed (Server A, Server B)",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "standard",
+    "status": "success",
+    "duration_ms": 4074.56,
+    "timestamp": "2026-10-09T00:14:36.808230"
+  },
+  {
+    "request_id": "e631e1d4",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:14:27.624505"
+  },
+  {
+    "request_id": "a637ddbc",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:14:27.623996"
+  },
+  {
+    "request_id": "ff850b8a",
+    "action": "GET /books (Fantasy)",
+    "genre": "Fantasy",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 25.63,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2070.78,
+    "timestamp": "2026-10-09T00:14:17.400129"
+  },
+  {
+    "request_id": "30a816e7",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:14:10.243333"
+  },
+  {
+    "request_id": "6b4c2906",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:13:59.836514"
+  },
+  {
+    "request_id": "1ab387c2",
+    "action": "ADD \"Artificial Intelligence: A Modern Approach\" (Technology)",
+    "genre": "Technology",
+    "operation": "WRITE",
+    "primary_server": "Server B",
+    "replica_server": "Server A",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "PRIMARY",
+    "routing_score": 34.78,
+    "reason": "Primary authoritative write + replication",
+    "status": "success",
+    "duration_ms": 2084.12,
+    "timestamp": "2026-10-09T00:13:55.782393"
+  },
+  {
+    "request_id": "f77dc3a8",
+    "action": "ADD \"Dune\" (Fiction)",
+    "genre": "Fiction",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 34.09,
+    "reason": "Primary authoritative write + replication",
+    "status": "success",
+    "duration_ms": 2043.62,
+    "timestamp": "2026-10-09T00:13:49.601422"
+  },
+  {
+    "request_id": "9a137ad4",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 34.21,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2073.74,
+    "timestamp": "2026-10-09T00:13:11.262271"
+  },
+  {
+    "request_id": "1d207e3a",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:13:04.128868"
+  },
+  {
+    "request_id": "e6e0f965",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:13:04.128506"
+  },
+  {
+    "request_id": "e710c002",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 33.85,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2029.01,
+    "timestamp": "2026-10-09T00:12:53.829088"
+  },
+  {
+    "request_id": "de2767a2",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:12:48.953256"
+  },
+  {
+    "request_id": "6f1bbc2b",
+    "action": "RETURN 'The Hobbit' (Fine: INR 0.0)",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative return + replica sync",
+    "status": "success",
+    "duration_ms": 6108.04,
+    "timestamp": "2026-10-09T00:12:42.302791"
+  },
+  {
+    "request_id": "f76f92e2",
+    "action": "ISSUE 'The Hobbit' -> student",
+    "genre": "Fantasy",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative issue + replica sync",
+    "status": "success",
+    "duration_ms": 6145.75,
+    "timestamp": "2026-10-09T00:12:29.573127"
+  },
+  {
+    "request_id": "dcf8c152",
+    "action": "DELETE /books/bk-a-fd71227c",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative deletion + replica cleanup",
+    "status": "success",
+    "duration_ms": 6108.83,
+    "timestamp": "2026-10-09T00:12:16.817878"
+  },
+  {
+    "request_id": "f297ef7b",
+    "action": "UPDATE /books/bk-a-fd71227c",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "Authoritative update + replica sync",
+    "status": "success",
+    "duration_ms": 4096.22,
+    "timestamp": "2026-10-09T00:12:04.051184"
+  },
+  {
+    "request_id": "ab686a24",
+    "action": "USER LOGIN: admin (admin)",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Gateway"
+    ],
+    "server": "Gateway",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "auth_login",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:57.912762"
+  },
+  {
+    "request_id": "45d46f37",
+    "action": "ADD \"Test Adventure Odyssey 1791484905\" (Adventure)",
+    "genre": "Adventure",
+    "operation": "WRITE",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 50.73,
+    "reason": "Primary authoritative write + replication",
+    "status": "success",
+    "duration_ms": 2061.48,
+    "timestamp": "2026-10-09T00:11:51.309589"
+  },
+  {
+    "request_id": "252b7185",
+    "action": "HEALTH MONITOR: Server A RECOVERED",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "server_recovery",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:42.277087"
+  },
+  {
+    "request_id": "65effde9",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:42.276434"
+  },
+  {
+    "request_id": "bf72e77e",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [],
+    "server": "None",
+    "server_role": "N/A",
+    "routing_score": null,
+    "reason": "All eligible servers for Adventure are OFFLINE",
+    "status": "error",
+    "duration_ms": 0.1,
+    "timestamp": "2026-10-09T00:11:37.224456"
+  },
+  {
+    "request_id": "42219368",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:34.374340"
+  },
+  {
+    "request_id": "ecd63ab1",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:32.328848"
+  },
+  {
+    "request_id": "c999d96d",
+    "action": "SIMULATION: Server B has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:29.468685"
+  },
+  {
+    "request_id": "e114358c",
+    "action": "RECOVERY SYNC: Server B & Server A",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:29.467973"
+  },
+  {
+    "request_id": "5a585e09",
+    "action": "HEALTH MONITOR: Server B RECOVERED",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "server_recovery",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:21.894930"
+  },
+  {
+    "request_id": "dfd650d8",
+    "action": "RECOVERY SYNC: Server B & Server A",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:21.894385"
+  },
+  {
+    "request_id": "eafbc8b8",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 124.15,
+    "reason": "Primary healthy (Replica OFFLINE)",
+    "status": "success",
+    "duration_ms": 2044.55,
+    "timestamp": "2026-10-09T00:11:19.215104"
+  },
+  {
+    "request_id": "e131cfc2",
+    "action": "SIMULATION: Server B is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5002"
+    ],
+    "server": "http://localhost:5002",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:12.296500"
+  },
+  {
+    "request_id": "08eb5c50",
+    "action": "SIMULATION: Server A has RECOVERED. Synchronized and restored to eligible pool!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:09.433666"
+  },
+  {
+    "request_id": "7f2dd57d",
+    "action": "RECOVERY SYNC: Server A & Server B",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "Server A"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "recovery_data_synchronization",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:11:09.433173"
+  },
+  {
+    "request_id": "8d916744",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 30.16,
+    "reason": "Primary Server Server A OFFLINE - Automatic Failover",
+    "status": "success",
+    "duration_ms": 2073.04,
+    "timestamp": "2026-10-09T00:10:59.165657"
+  },
+  {
+    "request_id": "ca5c41f4",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:10:52.202291"
+  },
+  {
+    "request_id": "ae206cb5",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 29.63,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2050.77,
+    "timestamp": "2026-10-09T00:10:44.026808"
+  },
+  {
+    "request_id": "a5c629b2",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:10:37.100263"
+  },
+  {
+    "request_id": "fc2abe68",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 33.66,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2071.62,
+    "timestamp": "2026-10-09T00:10:33.023196"
+  },
+  {
+    "request_id": "5929a437",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 28.2,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2052.8,
+    "timestamp": "2026-10-09T00:06:59.077487"
+  },
+  {
+    "request_id": "b4d4bfd2",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 27.9,
+    "reason": "Primary Server Server A OFFLINE \u2014 Automatic Failover",
+    "status": "success",
+    "duration_ms": 2061.17,
+    "timestamp": "2026-10-09T00:06:19.713123"
+  },
+  {
+    "request_id": "0e9be9bf",
+    "action": "SIMULATION: Server A is now SIMULATED OFFLINE. Gateway will automatically failover!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "simulation_toggle",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:06:12.750709"
+  },
+  {
+    "request_id": "11b669e2",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server B",
+    "server_role": "REPLICA",
+    "routing_score": 29.77,
+    "reason": "Lower routing score",
+    "status": "success",
+    "duration_ms": 2060.04,
+    "timestamp": "2026-10-09T00:06:04.567320"
+  },
+  {
+    "request_id": "d53b0a6f",
+    "action": "SIMULATION: Heavy load spike applied to Server A. Routing score increased!",
+    "genre": "General",
+    "operation": "READ",
+    "primary_server": "N/A",
+    "replica_server": "N/A",
+    "eligible_servers": [
+      "http://localhost:5001"
+    ],
+    "server": "http://localhost:5001",
+    "server_role": "PRIMARY",
+    "routing_score": null,
+    "reason": "load_spike",
+    "status": "success",
+    "duration_ms": null,
+    "timestamp": "2026-10-09T00:05:57.608059"
+  },
+  {
+    "request_id": "fdda4b52",
+    "action": "GET /books (Adventure)",
+    "genre": "Adventure",
+    "operation": "READ",
+    "primary_server": "Server A",
+    "replica_server": "Server B",
+    "eligible_servers": [
+      "Server A",
+      "Server B"
+    ],
+    "server": "Server A",
+    "server_role": "PRIMARY",
+    "routing_score": 31.08,
+    "reason": "Primary healthy and preferred",
+    "status": "success",
+    "duration_ms": 2068.51,
+    "timestamp": "2026-10-09T00:05:53.537820"
+  },
+  {
+    "request_id": "ca160835",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4090.8,
+    "timestamp": "2026-10-08T19:59:42.090145"
+  },
+  {
+    "request_id": "f6f835df",
+    "action": "USER LOGIN: student (student)",
+    "server": "Gateway",
+    "status": "success",
+    "routing_score": null,
+    "reason": "auth_login",
+    "duration_ms": null,
+    "timestamp": "2026-10-08T19:59:37.367307"
+  },
+  {
+    "request_id": "acefb83e",
+    "action": "GET /books (Distributed Merge)",
+    "server": "Server A, Server B",
+    "status": "success",
+    "routing_score": null,
+    "reason": "distributed_merge",
+    "duration_ms": 4067.43,
+    "timestamp": "2026-10-08T19:58:52.146560"
+  },
+  {
     "request_id": "233c85c4",
     "action": "GET /books (Distributed Merge)",
     "server": "Server A, Server B",

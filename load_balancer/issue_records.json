@@ -1,5 +1,40 @@
 [
   {
+    "id": "iss-e87b1c4f",
+    "book_id": "bk-a-01",
+    "book_title": "The Hobbit",
+    "username": "student",
+    "issue_date": "2026-10-09",
+    "due_date": "2026-10-19",
+    "return_date": "2026-10-09",
+    "fine_amount": 0.0,
+    "status": "Returned"
+  },
+  {
+    "id": "iss-395f13c7",
+    "book_id": "bk-a-01",
+    "book_title": "The Hobbit",
+    "username": "student",
+    "issue_date": "2026-10-09",
+    "due_date": "2026-10-23",
+    "return_date": "2026-10-09",
+    "fine_amount": 0.0,
+    "status": "Returned",
+    "overdue_days": 0,
+    "current_fine": 0.0
+  },
+  {
+    "id": "iss-48e9371d",
+    "book_id": "bk-a-01",
+    "book_title": "The Hobbit",
+    "username": "student",
+    "issue_date": "2026-10-09",
+    "due_date": "2026-10-19",
+    "return_date": "2026-10-09",
+    "fine_amount": 0.0,
+    "status": "Returned"
+  },
+  {
     "id": "iss-8f1c9715",
     "book_id": "bk-a-01",
     "book_title": "The Hobbit",

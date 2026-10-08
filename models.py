@@ -16,19 +16,89 @@ def verify_password(password: str, hashed: str) -> bool:
     """Verify password matches hash."""
     return hash_password(password) == hashed
 
-def create_book(title, author, genre, server, book_id=None, availability="Available", issued_to=None, issue_date=None, due_date=None, issue_count=0):
-    """Standardized book model dictionary."""
+# ==================================================
+# PRIMARY + SECONDARY/REPLICA TOPOLOGY CONFIGURATION
+# ==================================================
+# Logical Partitioning:
+# Server A Primary: Fiction, Fantasy, Adventure
+# Server A Replica: Science, Technology, Math
+# Server B Primary: Science, Technology, Math
+# Server B Replica: Fiction, Fantasy, Adventure
+
+GENRE_TOPOLOGY = {
+    "Fiction": {"primary": "server_a", "replica": "server_b"},
+    "Fantasy": {"primary": "server_a", "replica": "server_b"},
+    "Adventure": {"primary": "server_a", "replica": "server_b"},
+    "Science": {"primary": "server_b", "replica": "server_a"},
+    "Technology": {"primary": "server_b", "replica": "server_a"},
+    "Math": {"primary": "server_b", "replica": "server_a"},
+}
+
+SERVER_GENRES = {
+    "server_a": {
+        "id": "server_a",
+        "name": "Server A",
+        "port": 5001,
+        "primary": ["Fiction", "Fantasy", "Adventure"],
+        "replica": ["Science", "Technology", "Math"]
+    },
+    "server_b": {
+        "id": "server_b",
+        "name": "Server B",
+        "port": 5002,
+        "primary": ["Science", "Technology", "Math"],
+        "replica": ["Fiction", "Fantasy", "Adventure"]
+    }
+}
+
+def normalize_genre(genre: str) -> str:
+    """Normalize genre capitalization to match topology."""
+    if not genre:
+        return "Fiction"
+    g_lower = genre.strip().lower()
+    for g in GENRE_TOPOLOGY:
+        if g.lower() == g_lower:
+            return g
+    # Handle synonyms or tech variations
+    if "tech" in g_lower:
+        return "Technology"
+    return genre.strip().title()
+
+def get_genre_topology(genre: str):
+    """Retrieve primary and replica server IDs for a genre."""
+    norm = normalize_genre(genre)
+    return GENRE_TOPOLOGY.get(norm, {"primary": "server_a", "replica": "server_b"})
+
+def get_primary_server(genre: str) -> str:
+    """Get the primary server ID for a given genre."""
+    return get_genre_topology(genre)["primary"]
+
+def get_replica_server(genre: str) -> str:
+    """Get the secondary/replica server ID for a given genre."""
+    return get_genre_topology(genre)["replica"]
+
+def get_server_genres(server_id: str):
+    """Return primary and replica genre lists for a server."""
+    return SERVER_GENRES.get(server_id, {
+        "primary": [],
+        "replica": []
+    })
+
+def create_book(title, author, genre, server, book_id=None, availability="Available", issued_to=None, issue_date=None, due_date=None, issue_count=0, data_role="PRIMARY"):
+    """Standardized book model dictionary with explicit data_role distinction."""
+    norm_genre = normalize_genre(genre)
     return {
         "id": book_id or generate_id(prefix="bk-a" if "A" in str(server) else "bk-b"),
         "title": title.strip(),
         "author": (author or "Unknown Author").strip(),
-        "genre": genre.strip(),
+        "genre": norm_genre,
         "server": server,
         "availability": availability,
         "issued_to": issued_to,
         "issue_date": issue_date,
         "due_date": due_date,
-        "issue_count": issue_count
+        "issue_count": issue_count,
+        "data_role": data_role  # PRIMARY or REPLICA
     }
 
 def calculate_fine(due_date_str, daily_fine_rate=10.0):

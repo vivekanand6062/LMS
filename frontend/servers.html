@@ -205,18 +205,22 @@ async function loadServers() {
             </div>
           </div>
 
-          <div class="sc-metrics">
+          <div class="sc-metrics" style="grid-template-columns: repeat(5, 1fr);">
             <div class="metric">
               <div class="metric-val">${s.latency_ms}ms</div>
               <div class="metric-lbl">Latency</div>
             </div>
             <div class="metric">
               <div class="metric-val">${s.active_requests}</div>
-              <div class="metric-lbl">Active Reqs</div>
+              <div class="metric-lbl">Active</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">${s.cpu_percent || 5.0}%</div>
+              <div class="metric-lbl">CPU</div>
             </div>
             <div class="metric">
               <div class="metric-val">${s.requests}</div>
-              <div class="metric-lbl">Total Reqs</div>
+              <div class="metric-lbl">Reqs</div>
             </div>
             <div class="metric">
               <div class="metric-val" style="color:var(--blue-l);">${s.routing_score}</div>
@@ -226,8 +230,16 @@ async function loadServers() {
 
           <div style="margin:14px 0;">
             <div class="meta-item">
-              <span class="meta-label">Partitioned Genres:</span>
-              <span class="meta-val">${(s.genres || []).join(', ')}</span>
+              <span class="meta-label">Node Role:</span>
+              <span class="meta-val" style="color:var(--blue-l); font-weight:700;">PRIMARY & REPLICA DUAL-NODE</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Primary Genres:</span>
+              <span class="meta-val" style="color:var(--t1); font-weight:600;">${(s.primary_genres || s.genres || []).join(', ')}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Replica Genres:</span>
+              <span class="meta-val" style="color:var(--purple-l); font-weight:600;">${(s.replica_genres || (port === '5001' ? ['Science','Technology','Math'] : ['Fiction','Fantasy','Adventure'])).join(', ')}</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Last Health Check:</span>

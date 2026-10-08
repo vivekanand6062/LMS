@@ -9,7 +9,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 18
+    "issue_count": 18,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-02",
@@ -21,7 +22,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 10
+    "issue_count": 10,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-03",
@@ -33,7 +35,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 15
+    "issue_count": 15,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-04",
@@ -45,7 +48,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 22
+    "issue_count": 22,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-05",
@@ -57,7 +61,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 30
+    "issue_count": 30,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-5484b3a0",
@@ -69,7 +74,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-95871f58",
@@ -81,7 +87,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-395f2f47",
@@ -93,7 +100,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "REPLICA"
   },
   {
     "id": "bk-b-0d67237b",
@@ -105,7 +113,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-b-56d7bc84",
@@ -117,6 +126,146 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "REPLICA"
+  },
+  {
+    "author": "J.R.R. Tolkien",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fantasy",
+    "id": "bk-a-01",
+    "issue_count": 17,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "The Hobbit",
+    "replicated_at": "2026-10-09T00:26:44.849329"
+  },
+  {
+    "author": "J.K. Rowling",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fantasy",
+    "id": "bk-a-02",
+    "issue_count": 25,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "replicated_at": "2026-10-09T00:26:44.849338"
+  },
+  {
+    "author": "J.R.R. Tolkien",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fantasy",
+    "id": "bk-a-03",
+    "issue_count": 19,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "The Lord of the Rings",
+    "replicated_at": "2026-10-09T00:26:44.849341"
+  },
+  {
+    "author": "Robert Louis Stevenson",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Adventure",
+    "id": "bk-a-04",
+    "issue_count": 8,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Treasure Island",
+    "replicated_at": "2026-10-09T00:26:44.849345"
+  },
+  {
+    "author": "F. Scott Fitzgerald",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fiction",
+    "id": "bk-a-05",
+    "issue_count": 14,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "The Great Gatsby",
+    "replicated_at": "2026-10-09T00:26:44.849348"
+  },
+  {
+    "author": "Frank Herbert",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fiction",
+    "id": "bk-a-5f664a0f",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Dune",
+    "replicated_at": "2026-10-09T00:26:44.849350"
+  },
+  {
+    "author": "Frank Herbert",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fiction",
+    "id": "bk-a-95aaea21",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Dune",
+    "replicated_at": "2026-10-09T00:26:44.849354"
+  },
+  {
+    "author": "Frank Herbert",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fiction",
+    "id": "bk-a-8e82fd29",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Dune",
+    "replicated_at": "2026-10-09T00:26:44.849357"
+  },
+  {
+    "author": "Frank Herbert",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Fiction",
+    "id": "bk-a-6decb9b0",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server A",
+    "title": "Dune",
+    "replicated_at": "2026-10-09T00:26:44.849360"
+  },
+  {
+    "id": "bk-b-7581b2e8",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell",
+    "genre": "Technology",
+    "server": "Server B",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   }
 ]

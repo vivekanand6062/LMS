@@ -67,8 +67,11 @@
       <thead>
         <tr>
           <th>Trace ID</th>
-          <th>Action</th>
+          <th>Genre</th>
+          <th>Op</th>
           <th>Routed Node</th>
+          <th>Role</th>
+          <th>Eligible Nodes</th>
           <th>Routing Reason / Score</th>
           <th>Duration</th>
           <th>Status</th>
@@ -76,7 +79,7 @@
         </tr>
       </thead>
       <tbody id="logsContainer">
-        <tr><td colspan="7" style="text-align:center; padding:30px; color:var(--t3);">Loading audit logs...</td></tr>
+        <tr><td colspan="10" style="text-align:center; padding:30px; color:var(--t3);">Loading audit logs...</td></tr>
       </tbody>
     </table>
   </div>
@@ -92,7 +95,7 @@ async function loadLogs() {
     allLogs = await response.json();
     renderLogs(allLogs);
   } catch (error) {
-    document.getElementById('logsContainer').innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--red);">Failed to load logs</td></tr>';
+    document.getElementById('logsContainer').innerHTML = '<tr><td colspan="10" style="text-align:center; color:var(--red);">Failed to load logs</td></tr>';
   }
 }
 
@@ -101,7 +104,7 @@ function filterLogs(){
   const st = document.getElementById('statusFilter').value;
 
   const filtered = allLogs.filter(l => {
-    const mQuery = !q || (l.action && l.action.toLowerCase().includes(q)) || (l.server && l.server.toLowerCase().includes(q)) || (l.request_id && l.request_id.toLowerCase().includes(q));
+    const mQuery = !q || (l.action && l.action.toLowerCase().includes(q)) || (l.server && l.server.toLowerCase().includes(q)) || (l.genre && l.genre.toLowerCase().includes(q)) || (l.request_id && l.request_id.toLowerCase().includes(q));
     const mStatus = st === 'all' || l.status === st;
     return mQuery && mStatus;
   });
@@ -113,23 +116,33 @@ function renderLogs(logs){
   const container = document.getElementById('logsContainer');
 
   if (!logs.length) {
-    container.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:var(--t3);">No logs recorded yet.</td></tr>';
+    container.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:30px; color:var(--t3);">No logs recorded yet.</td></tr>';
     return;
   }
 
   container.innerHTML = logs.map(log => {
     const isSuccess = log.status === 'success';
-    const serverName = log.server.replace('http://localhost:5001', 'Server A').replace('http://localhost:5002', 'Server B');
+    const serverName = (log.server || 'N/A').replace('http://localhost:5001', 'Server A').replace('http://localhost:5002', 'Server B');
     const scoreText = log.routing_score !== null && log.routing_score !== undefined ? `(Score: ${log.routing_score})` : '';
     const reasonText = (log.reason || 'standard').replace(/_/g, ' ');
+    const roleText = log.server_role || (['Fiction','Fantasy','Adventure'].includes(log.genre) && serverName.includes('Server A') ? 'PRIMARY' : 'REPLICA');
+    const isPrimary = roleText.toUpperCase() === 'PRIMARY';
+    const eligibleText = (log.eligible_servers && log.eligible_servers.length) ? log.eligible_servers.join(', ') : serverName;
 
     return `
       <tr>
         <td style="font-family:var(--mono); font-size:12px; color:var(--t3);">${(log.request_id || '').slice(0, 8)}</td>
-        <td><strong style="color:var(--t1);">${log.action}</strong></td>
-        <td><span style="font-family:var(--mono);">${serverName}</span></td>
+        <td><span class="chip ${['Fiction','Fantasy','Adventure'].includes(log.genre) ? 'b' : 'p'}">${log.genre || 'General'}</span></td>
+        <td><strong style="font-size:11px; font-family:var(--mono); color:${log.operation === 'WRITE' ? 'var(--amber-l)' : 'var(--blue-l)'};">${log.operation || 'READ'}</strong></td>
+        <td><strong style="font-family:var(--mono); color:var(--t1);">${serverName}</strong></td>
         <td>
-          <span style="font-size:12px; color:var(--t2);">${reasonText}</span>
+          <span class="badge ${isPrimary ? 'badge-available' : 'badge-role badge-student'}">
+            ${roleText}
+          </span>
+        </td>
+        <td style="font-size:11px; font-family:var(--mono); color:var(--t2);">${eligibleText}</td>
+        <td>
+          <span style="font-size:12px; color:var(--t1);">${reasonText}</span>
           <span style="font-family:var(--mono); font-size:11px; color:var(--blue-l);">${scoreText}</span>
         </td>
         <td style="font-family:var(--mono); font-size:12px;">${log.duration_ms ? log.duration_ms + 'ms' : '—'}</td>

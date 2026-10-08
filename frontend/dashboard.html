@@ -175,8 +175,12 @@
                 </svg>
               </div>
               <div>
-                <div class="sname">Server A <span class="bpill on" id="badgeA">HEALTHY</span></div>
-                <div class="sport">Port 5001 · Fiction / Fantasy / Adventure</div>
+                <div class="sname">
+                  Server A 
+                  <span class="bpill on" id="badgeA">HEALTHY</span>
+                  <span class="badge" style="background:var(--blue-dim); color:var(--blue-l); border:1px solid var(--blue-brd); font-size:10px; margin-left:4px;">ROLE: PRIMARY / REPLICA</span>
+                </div>
+                <div class="sport">Port 5001 · Primary + Secondary Replica Node</div>
               </div>
             </div>
             <div style="text-align:right;">
@@ -185,7 +189,7 @@
             </div>
           </div>
           <div class="scard-body">
-            <div class="smets">
+            <div class="smets" style="grid-template-columns: repeat(4, 1fr);">
               <div>
                 <div class="smv"><span id="aBk">—</span></div>
                 <div class="sml">Books Stored</div>
@@ -198,13 +202,28 @@
                 <div class="smv"><span id="aAct">0</span></div>
                 <div class="sml">Active Reqs</div>
               </div>
+              <div>
+                <div class="smv"><span id="aCpu">5.0%</span></div>
+                <div class="sml">CPU Load</div>
+              </div>
             </div>
-            <div class="scats">
-              <span class="scats-lbl">Partition:</span>
+
+            <!-- Primary Genres -->
+            <div class="scats" style="margin-bottom:6px;">
+              <span class="scats-lbl" style="color:var(--blue-l); font-weight:700;">Primary Genres:</span>
               <span class="chip b">Fiction</span>
               <span class="chip b">Fantasy</span>
               <span class="chip b">Adventure</span>
             </div>
+
+            <!-- Replica Genres -->
+            <div class="scats" style="margin-bottom:12px;">
+              <span class="scats-lbl" style="color:var(--t3); font-weight:700;">Replica Genres:</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--purple-brd); color:var(--purple-l);">Science</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--purple-brd); color:var(--purple-l);">Technology</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--purple-brd); color:var(--purple-l);">Math</span>
+            </div>
+
             <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-bottom:12px;">
               Total Handled: <strong id="aRq" style="color:var(--t1);">0</strong> &nbsp;·&nbsp;
               Failures: <strong id="aFail" style="color:var(--amber);">0</strong>
@@ -225,8 +244,12 @@
                 </svg>
               </div>
               <div>
-                <div class="sname">Server B <span class="bpill on" id="badgeB">HEALTHY</span></div>
-                <div class="sport">Port 5002 · Science / Technology / Math</div>
+                <div class="sname">
+                  Server B 
+                  <span class="bpill on" id="badgeB">HEALTHY</span>
+                  <span class="badge" style="background:var(--purple-dim); color:var(--purple-l); border:1px solid var(--purple-brd); font-size:10px; margin-left:4px;">ROLE: PRIMARY / REPLICA</span>
+                </div>
+                <div class="sport">Port 5002 · Primary + Secondary Replica Node</div>
               </div>
             </div>
             <div style="text-align:right;">
@@ -235,7 +258,7 @@
             </div>
           </div>
           <div class="scard-body">
-            <div class="smets">
+            <div class="smets" style="grid-template-columns: repeat(4, 1fr);">
               <div>
                 <div class="smv"><span id="bBk">—</span></div>
                 <div class="sml">Books Stored</div>
@@ -248,13 +271,28 @@
                 <div class="smv"><span id="bAct">0</span></div>
                 <div class="sml">Active Reqs</div>
               </div>
+              <div>
+                <div class="smv"><span id="bCpu">4.0%</span></div>
+                <div class="sml">CPU Load</div>
+              </div>
             </div>
-            <div class="scats">
-              <span class="scats-lbl">Partition:</span>
+
+            <!-- Primary Genres -->
+            <div class="scats" style="margin-bottom:6px;">
+              <span class="scats-lbl" style="color:var(--purple-l); font-weight:700;">Primary Genres:</span>
               <span class="chip p">Science</span>
               <span class="chip p">Technology</span>
               <span class="chip p">Math</span>
             </div>
+
+            <!-- Replica Genres -->
+            <div class="scats" style="margin-bottom:12px;">
+              <span class="scats-lbl" style="color:var(--t3); font-weight:700;">Replica Genres:</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--blue-brd); color:var(--blue-l);">Fiction</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--blue-brd); color:var(--blue-l);">Fantasy</span>
+              <span class="chip" style="opacity:0.85; border-color:var(--blue-brd); color:var(--blue-l);">Adventure</span>
+            </div>
+
             <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-bottom:12px;">
               Total Handled: <strong id="bRq" style="color:var(--t1);">0</strong> &nbsp;·&nbsp;
               Failures: <strong id="bFail" style="color:var(--amber);">0</strong>
@@ -275,6 +313,76 @@
         <div class="meter-wrap">
           <div class="meter-fill meter-a" id="meterA" style="width:50%;"></div>
           <div class="meter-fill meter-b" id="meterB" style="width:50%;"></div>
+        </div>
+      </div>
+
+      <!-- ROUTING VISUALIZATION PANEL -->
+      <div class="routing-vis-panel" style="margin-top:20px; padding:20px; background:var(--card); border-radius:var(--r3); border:1px solid var(--border);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div style="font-size:16px; font-weight:700; color:var(--t1); display:flex; align-items:center; gap:8px;">
+              <span style="font-size:18px;">🎯</span> Dynamic Eligible-Server Routing Visualizer
+            </div>
+            <div style="font-size:12px; color:var(--t3); margin-top:2px;">
+              Real-time genre routing decisions: Evaluates eligible primary & replica nodes, load scores & automatic failover
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <label style="font-size:12px; color:var(--t2); font-weight:600;">Inspect Genre:</label>
+            <select id="inspectGenreSelect" class="filter-sel" style="padding:6px 12px; font-size:12px;" onchange="inspectRoutingDecision()">
+              <option value="Adventure">Adventure (Primary: Server A · Replica: Server B)</option>
+              <option value="Fiction">Fiction (Primary: Server A · Replica: Server B)</option>
+              <option value="Fantasy">Fantasy (Primary: Server A · Replica: Server B)</option>
+              <option value="Science">Science (Primary: Server B · Replica: Server A)</option>
+              <option value="Technology">Technology (Primary: Server B · Replica: Server A)</option>
+              <option value="Math">Math (Primary: Server B · Replica: Server A)</option>
+            </select>
+            <button class="btn btn-p" style="padding:6px 14px; font-size:12px;" onclick="testLiveGenreRead()">
+              Test Live Read
+            </button>
+          </div>
+        </div>
+
+        <!-- Visualizer Decision Cards -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+          <div style="background:var(--bg); padding:14px; border-radius:var(--r2); border:1px solid var(--border);">
+            <div style="font-size:11px; text-transform:uppercase; color:var(--t3); font-family:var(--mono); margin-bottom:4px;">Target Genre & Op</div>
+            <div style="font-size:18px; font-weight:700; color:var(--t1);" id="visGenre">Adventure</div>
+            <div style="font-size:11px; color:var(--blue-l); font-family:var(--mono); margin-top:2px;" id="visOp">READ OPERATION</div>
+          </div>
+
+          <div style="background:var(--bg); padding:14px; border-radius:var(--r2); border:1px solid var(--border);">
+            <div style="font-size:11px; text-transform:uppercase; color:var(--t3); font-family:var(--mono); margin-bottom:4px;">Primary Node</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:15px; font-weight:700; color:var(--blue-l);" id="visPrimaryName">Server A</span>
+              <span class="bpill on" id="visPrimaryStatus" style="font-size:10px; padding:2px 8px;">HEALTHY</span>
+            </div>
+            <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-top:4px;">
+              Score: <strong id="visPrimaryScore" style="color:var(--t1);">—</strong> &nbsp;·&nbsp; CPU: <strong id="visPrimaryCpu" style="color:var(--t1);">—</strong>
+            </div>
+          </div>
+
+          <div style="background:var(--bg); padding:14px; border-radius:var(--r2); border:1px solid var(--border);">
+            <div style="font-size:11px; text-transform:uppercase; color:var(--t3); font-family:var(--mono); margin-bottom:4px;">Replica Node</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:15px; font-weight:700; color:var(--purple-l);" id="visReplicaName">Server B</span>
+              <span class="bpill on" id="visReplicaStatus" style="font-size:10px; padding:2px 8px;">HEALTHY</span>
+            </div>
+            <div style="font-size:11px; color:var(--t3); font-family:var(--mono); margin-top:4px;">
+              Score: <strong id="visReplicaScore" style="color:var(--t1);">—</strong> &nbsp;·&nbsp; CPU: <strong id="visReplicaCpu" style="color:var(--t1);">—</strong>
+            </div>
+          </div>
+
+          <div style="background:var(--bg); padding:14px; border-radius:var(--r2); border:1.5px solid var(--blue-brd);">
+            <div style="font-size:11px; text-transform:uppercase; color:var(--blue-l); font-family:var(--mono); margin-bottom:4px;">Selected Server & Reason</div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:16px; font-weight:800; color:var(--t1);" id="visSelectedServer">Server A</span>
+              <span class="badge badge-available" id="visSelectedRole" style="font-size:10px;">PRIMARY</span>
+            </div>
+            <div style="font-size:12px; color:var(--amber-l); font-weight:600; margin-top:4px;" id="visReason">
+              Primary healthy and preferred
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -737,6 +845,7 @@ async function loadServerStats(){
       $('aBk').textContent = sA.books;
       $('aLat').textContent = `${sA.latency_ms} ms`;
       $('aAct').textContent = sA.active_requests;
+      if($('aCpu')) $('aCpu').textContent = `${sA.cpu_percent}%`;
       $('aRq').textContent = sA.requests;
       $('aFail').textContent = sA.failure_count;
       $('scoreA').textContent = sA.routing_score;
@@ -749,6 +858,7 @@ async function loadServerStats(){
       $('bBk').textContent = sB.books;
       $('bLat').textContent = `${sB.latency_ms} ms`;
       $('bAct').textContent = sB.active_requests;
+      if($('bCpu')) $('bCpu').textContent = `${sB.cpu_percent}%`;
       $('bRq').textContent = sB.requests;
       $('bFail').textContent = sB.failure_count;
       $('scoreB').textContent = sB.routing_score;
@@ -766,8 +876,93 @@ async function loadServerStats(){
     $('meterA').style.width = `${pctA}%`;
     $('meterB').style.width = `${pctB}%`;
 
+    // Update real-time routing visualizer if available
+    if(data.last_routing_decision){
+      renderRoutingVisualizer(data.last_routing_decision);
+    }
+
   }catch(err){
     console.error("Failed to load server stats", err);
+  }
+}
+
+function renderRoutingVisualizer(dec){
+  if(!dec) return;
+  if($('visGenre')) $('visGenre').textContent = dec.genre || 'Adventure';
+  if($('visOp')) $('visOp').textContent = (dec.operation || 'READ') + ' OPERATION';
+
+  if($('visPrimaryName')) $('visPrimaryName').textContent = dec.primary_server || 'Server A';
+  if($('visPrimaryStatus')){
+    const st = (dec.primary_status || 'HEALTHY').toUpperCase();
+    $('visPrimaryStatus').textContent = st;
+    $('visPrimaryStatus').className = 'bpill ' + (st === 'HEALTHY' || st === 'ACTIVE' ? 'on' : (st === 'RECOVERED' ? '' : 'off'));
+  }
+  if($('visPrimaryScore')) $('visPrimaryScore').textContent = dec.primary_score ?? '—';
+  if($('visPrimaryCpu')) $('visPrimaryCpu').textContent = dec.primary_cpu ? dec.primary_cpu + '%' : (dec.primary_server === 'Server A' ? $('aCpu')?.textContent : $('bCpu')?.textContent) || '—';
+
+  if($('visReplicaName')) $('visReplicaName').textContent = dec.replica_server || 'Server B';
+  if($('visReplicaStatus')){
+    const st = (dec.replica_status || 'HEALTHY').toUpperCase();
+    $('visReplicaStatus').textContent = st;
+    $('visReplicaStatus').className = 'bpill ' + (st === 'HEALTHY' || st === 'ACTIVE' ? 'on' : (st === 'RECOVERED' ? '' : 'off'));
+  }
+  if($('visReplicaScore')) $('visReplicaScore').textContent = dec.replica_score ?? '—';
+  if($('visReplicaCpu')) $('visReplicaCpu').textContent = dec.replica_cpu ? dec.replica_cpu + '%' : (dec.replica_server === 'Server B' ? $('bCpu')?.textContent : $('aCpu')?.textContent) || '—';
+
+  if($('visSelectedServer')) $('visSelectedServer').textContent = dec.selected_server || 'None';
+  if($('visSelectedRole')){
+    const r = (dec.selected_role || 'PRIMARY').toUpperCase();
+    $('visSelectedRole').textContent = r;
+    $('visSelectedRole').className = 'badge ' + (r === 'PRIMARY' ? 'badge-available' : 'badge-role badge-student');
+  }
+  if($('visReason')) $('visReason').textContent = dec.reason || 'Primary healthy and preferred';
+}
+
+async function inspectRoutingDecision(){
+  const sel = $('inspectGenreSelect');
+  const genre = sel ? sel.value : 'Adventure';
+  try{
+    const res = await fetch(`/api/routing_decision?genre=${encodeURIComponent(genre)}&operation=READ`);
+    const data = await res.json();
+    renderRoutingVisualizer({
+      genre: data.genre,
+      operation: data.operation,
+      primary_server: data.primary_server?.name,
+      primary_status: data.primary_server?.status,
+      primary_score: data.primary_server?.routing_score,
+      primary_cpu: data.primary_server?.cpu_percent,
+      replica_server: data.replica_server?.name,
+      replica_status: data.replica_server?.status,
+      replica_score: data.replica_server?.routing_score,
+      replica_cpu: data.replica_server?.cpu_percent,
+      selected_server: data.selected_server,
+      selected_role: data.selected_role,
+      reason: data.reason
+    });
+  }catch(e){
+    console.error("Error inspecting routing decision", e);
+  }
+}
+
+async function testLiveGenreRead(){
+  const sel = $('inspectGenreSelect');
+  const genre = sel ? sel.value : 'Adventure';
+  try{
+    const res = await fetch(`/books?genre=${encodeURIComponent(genre)}`);
+    const routedServer = res.headers.get("X-Routed-Server") || "Server Node";
+    const serverRole = res.headers.get("X-Server-Role") || "PRIMARY";
+    const reason = res.headers.get("X-Routing-Reason") || "Primary healthy and preferred";
+
+    if(res.ok){
+      toast(`Live Read: ${genre} -> ${routedServer} (${serverRole}) — ${reason}`, "g");
+    } else {
+      const err = await res.json();
+      toast(`Route 503: ${err.error || 'All eligible servers offline'}`, "r");
+    }
+    loadServerStats();
+    inspectRoutingDecision();
+  }catch(e){
+    toast("Live read network error", "r");
   }
 }
 

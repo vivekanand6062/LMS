@@ -64,17 +64,15 @@ def run_tests():
     print(f" -> Gateway Server A status: {server_a_state}")
     assert server_a_state == "OFFLINE", f"Expected OFFLINE, got {server_a_state}"
 
-    # Try adding Fiction book (which normally goes to Server A)
-    failover_add = requests.post(f"{GATEWAY_URL}/add_book", json={
-        "title": "Failover Book During Outage",
-        "genre": "Fantasy",
-        "author": "Anonymous"
-    })
-    assert failover_add.status_code == 201, f"Expected failover to succeed, got {failover_add.status_code}: {failover_add.text}"
-    fo_data = failover_add.json()
-    print(f" -> Added book during Server A outage. Routed to: {fo_data.get('routed_server')} (Reason: {fo_data.get('routing_reason')})")
-    assert "Server B" in fo_data.get("routed_server", ""), "Should have failed over to Server B!"
-    print("  [OK] PASS: Test 3 Server failure detected & automatic failover to Server B succeeded!")
+    # Try reading Fantasy books (which normally goes to Server A primary)
+    failover_read = requests.get(f"{GATEWAY_URL}/books", params={"genre": "Fantasy"})
+    assert failover_read.status_code == 200, f"Expected failover to succeed, got {failover_read.status_code}: {failover_read.text}"
+    fo_books = failover_read.json()
+    routed_srv = failover_read.headers.get("X-Routed-Server", "")
+    print(f" -> Read Fantasy books during Server A outage. Routed to: {routed_srv} (Found {len(fo_books)} books from replica)")
+    assert "Server B" in routed_srv, "Should have failed over to Server B replica!"
+    assert len(fo_books) > 0, "Server B replica must return Fantasy books!"
+    print("  [OK] PASS: Test 3 Server failure detected & automatic failover to Server B replica succeeded!")
 
     # ---------------- TEST 4: Server Recovery ---------------- #
     print("\n[TEST 4] Testing Server Recovery...")

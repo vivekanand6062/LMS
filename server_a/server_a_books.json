@@ -9,7 +9,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 14
+    "issue_count": 17,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-02",
@@ -21,7 +22,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 25
+    "issue_count": 25,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-03",
@@ -33,7 +35,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 19
+    "issue_count": 19,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-04",
@@ -45,7 +48,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 8
+    "issue_count": 8,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-05",
@@ -57,7 +61,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 14
+    "issue_count": 14,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-5f664a0f",
@@ -69,7 +74,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-95aaea21",
@@ -81,7 +87,8 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
   },
   {
     "id": "bk-a-8e82fd29",
@@ -93,6 +100,146 @@
     "issued_to": null,
     "issue_date": null,
     "due_date": null,
-    "issue_count": 0
+    "issue_count": 0,
+    "data_role": "PRIMARY"
+  },
+  {
+    "author": "Thomas H. Cormen",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Science",
+    "id": "bk-b-01",
+    "issue_count": 18,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Introduction to Algorithms",
+    "replicated_at": "2026-10-09T00:26:40.761809"
+  },
+  {
+    "author": "James Stewart",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Math",
+    "id": "bk-b-02",
+    "issue_count": 10,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Calculus: Early Transcendentals",
+    "replicated_at": "2026-10-09T00:26:40.761821"
+  },
+  {
+    "author": "Raymond A. Serway",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Science",
+    "id": "bk-b-03",
+    "issue_count": 15,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Physics for Engineers",
+    "replicated_at": "2026-10-09T00:26:40.761828"
+  },
+  {
+    "author": "Michael T. Goodrich",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-04",
+    "issue_count": 22,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Data Structures & Algorithms in Python",
+    "replicated_at": "2026-10-09T00:26:40.761834"
+  },
+  {
+    "author": "Robert C. Martin",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-05",
+    "issue_count": 30,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Clean Code",
+    "replicated_at": "2026-10-09T00:26:40.761840"
+  },
+  {
+    "author": "Stuart Russell",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-5484b3a0",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "replicated_at": "2026-10-09T00:26:40.761845"
+  },
+  {
+    "author": "Stuart Russell",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-95871f58",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "replicated_at": "2026-10-09T00:26:40.761851"
+  },
+  {
+    "author": "Stuart Russell",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-0d67237b",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "replicated_at": "2026-10-09T00:26:40.761857"
+  },
+  {
+    "id": "bk-a-6decb9b0",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Fiction",
+    "server": "Server A",
+    "availability": "Available",
+    "issued_to": null,
+    "issue_date": null,
+    "due_date": null,
+    "issue_count": 0,
+    "data_role": "PRIMARY"
+  },
+  {
+    "author": "Stuart Russell",
+    "availability": "Available",
+    "data_role": "REPLICA",
+    "due_date": null,
+    "genre": "Technology",
+    "id": "bk-b-7581b2e8",
+    "issue_count": 0,
+    "issue_date": null,
+    "issued_to": null,
+    "server": "Server B",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "replicated_at": "2026-10-09T00:26:40.761864"
   }
 ]
